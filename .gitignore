@@ -1,0 +1,8 @@
+﻿/build*/
+/.deps/
+/.local/
+/out/
+/.vs/
+/CMakeUserPresets.json
+*.user
+/test-output/

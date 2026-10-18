@@ -1,0 +1,82 @@
+﻿version: 1
+camera:
+  position: [8, 6, 10]
+  target: [0, 1, 0]
+  fov: 52
+  speed: 5
+ambient:
+  color: [190, 210, 235]
+  intensity: 0.16
+meshes:
+  floor: { primitive: plane, texture: assets/checker.png }
+  box: { primitive: cube }
+  ball: { primitive: sphere }
+  pyramid: { file: assets/pyramid.obj }
+  static_gltf: { file: assets/static_cube.gltf }
+  arm: { file: assets/arm.glb }
+objects:
+  - id: ground
+    mesh: floor
+    transform:
+      scale: [14, 1, 14]
+    color: [150, 158, 172]
+  - id: sun
+    light:
+      type: directional
+      direction: [-0.7, -1, -0.5]
+      color: [255, 240, 220]
+      intensity: 1.6
+  - id: cool_fill
+    transform:
+      position: [1, 3, 2]
+    light:
+      type: point
+      color: [80, 175, 255]
+      intensity: 12
+      range: 9
+  - id: orange_box
+    mesh: box
+    color: [241, 145, 69]
+    transform:
+      position: [-2.3, 0.75, 0.4]
+      rotation: [0, 25, 0]
+      scale: [1.5, 1.5, 1.5]
+  - id: teal_sphere
+    mesh: ball
+    color: [74, 193, 191]
+    transform:
+      position: [0, 0.85, 1.5]
+      scale: [1.7, 1.7, 1.7]
+  - id: obj_pyramid
+    mesh: pyramid
+    color: [180, 155, 224]
+    transform:
+      position: [2.5, 0, 0.7]
+  - id: hierarchy
+    transform:
+      position: [-2.5, 0, -2.5]
+      rotation: [0, 20, 0]
+    children:
+      - id: static_gltf_cube
+        mesh: static_gltf
+        color: [130, 166, 205]
+        transform:
+          position: [0, 0.6, 0]
+          scale: [1.2, 1.2, 1.2]
+      - id: child_box
+        mesh: box
+        color: [220, 222, 230]
+        transform:
+          position: [0, 1.6, 0]
+          rotation: [0, 30, 0]
+          scale: [0.75, 0.75, 0.75]
+  - id: animated_arm
+    mesh: arm
+    color: [233, 199, 101]
+    transform:
+      position: [1.3, 0, -2.6]
+    animation:
+      clip: sway
+      speed: 1
+      loop: true
+
