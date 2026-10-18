@@ -154,7 +154,6 @@ void Viewer::frame(double dt) {
     v.cameraInput(dt);
     v.renderer.updateAnimations(v.scene,dt);
     BeginDrawing();
-    ClearBackground(BLACK);
     v.renderer.draw(v.scene,camera3d(v.camera));
     if (v.scene.objects().empty()) {
         const char* title="Open a scene to begin";

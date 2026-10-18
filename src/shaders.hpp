@@ -1,5 +1,35 @@
 ﻿#pragma once
 namespace fxp_viewer {
+// Reconstruct world viewing direction from a fullscreen quad. Unlike a 2D
+// gradient this horizon follows camera rotation and never has positional parallax.
+inline constexpr const char* skyboxVertex = R"glsl(#version 330
+in vec3 vertexPosition;
+uniform mat4 mvp;
+out vec2 screenPosition;
+void main() {
+    gl_Position = mvp*vec4(vertexPosition,1.0);
+    screenPosition = gl_Position.xy/gl_Position.w;
+}
+)glsl";
+inline constexpr const char* skyboxFragment = R"glsl(#version 330
+in vec2 screenPosition;
+uniform vec3 cameraForward;
+uniform vec3 cameraRight;
+uniform vec3 cameraUp;
+uniform vec2 viewScale;
+uniform vec3 skyColor;
+uniform vec3 horizonColor;
+uniform vec3 groundColor;
+out vec4 finalColor;
+void main() {
+    vec3 direction = normalize(cameraForward
+        + cameraRight*screenPosition.x*viewScale.x
+        + cameraUp*screenPosition.y*viewScale.y);
+    vec3 upper = mix(horizonColor,skyColor,smoothstep(0.0,0.6,direction.y));
+    vec3 lower = mix(horizonColor,groundColor,smoothstep(0.0,0.35,-direction.y));
+    finalColor = vec4(direction.y >= 0.0 ? upper : lower,1.0);
+}
+)glsl";
 // Lighting works in linear RGB, then encodes output to sRGB.
 // Static and skinned vertices share the fragment shader.
 inline constexpr const char* lightingVertex = R"glsl(#version 330

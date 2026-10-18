@@ -1,0 +1,32 @@
+version: 1
+background:
+  type: skybox
+  sky_color: [55, 105, 180]
+  horizon_color: [190, 215, 235]
+  ground_color: [42, 48, 58]
+camera:
+  position: [6, 3, 8]
+  target: [0, 1, 0]
+ambient:
+  intensity: 0.2
+meshes:
+  box: { primitive: cube }
+  floor: { primitive: plane }
+objects:
+  - id: sun
+    light:
+      type: directional
+      direction: [-1, -2, -1]
+      intensity: 1.2
+  - id: box
+    mesh: box
+    color: [235, 150, 75]
+    transform:
+      position: [0, 1, 0]
+      rotation: [0, 25, 0]
+      scale: [2, 2, 2]
+  - id: floor
+    mesh: floor
+    color: [125, 140, 130]
+    transform:
+      scale: [14, 1, 14]

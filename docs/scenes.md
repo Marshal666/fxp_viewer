@@ -59,12 +59,12 @@ included assets.
 
 ## Defaults and validation
 
-Only version: 1 is mandatory. Root fields are version, camera, ambient, meshes
-and objects. Missing objects means an empty scene.
+Only version: 1 is mandatory. Root fields are version, camera, ambient, background,
+meshes and objects. Missing objects means an empty scene.
 
 Camera defaults are shown above. FOV is vertical, 5..150 degrees; speed is positive
 metres/second. Position/target must define a nonzero, nonvertical direction.
-Background is black.
+Background defaults to black when omitted; see the options below.
 
 Each mesh needs exactly one of file or primitive. Primitives: cube, sphere, plane.
 Optional texture replaces all base-color texture slots. Static glTF/GLB needs
@@ -98,3 +98,32 @@ the first clip; defaults are time 0, speed 1, playing true, loop true. No animat
 mapping means bind pose. Clip names must match the importer. Imported glTF node
 animation, morph targets, blending and root motion are not supported.
 
+## Background
+
+Choose a solid RGB color:
+
+~~~yaml
+background:
+  type: color
+  color: [24, 28, 36]
+~~~
+
+Or a lightweight procedural skybox:
+
+~~~yaml
+background:
+  type: skybox
+  sky_color: [55, 105, 180]
+  horizon_color: [190, 215, 235]
+  ground_color: [42, 48, 58]
+~~~
+
+The colors above are the skybox defaults; only type: skybox is needed to use
+them. Colors are opaque sRGB integer triples in 0..255. The skybox blends sky to
+horizon to ground based on the camera's world viewing direction. It follows
+camera rotation, has no parallax when moving, and requires no textures. It is
+a background only and does not provide scene lighting or reflections.
+
+Omitting background preserves the black default. Omitting type selects color;
+omitting color also selects black. Fields belonging to another background type
+are rejected. The skybox example is examples/skybox.yaml.

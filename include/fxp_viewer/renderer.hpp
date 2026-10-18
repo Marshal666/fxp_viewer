@@ -40,6 +40,7 @@ public:
     // Overrides all material slots of this shared asset.
     void setColorTexture(const MeshHandle& mesh, const std::filesystem::path& path);
     void updateAnimations(Scene& scene, double deltaSeconds);
+    // Clears the target, draws its scene background, then the 3D objects.
     void draw(const Scene& scene, const Camera3D& camera);
 private:
     MeshHandle adoptModel(Model model);

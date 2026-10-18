@@ -106,9 +106,29 @@ SceneDocument loadSceneFile(const std::filesystem::path& input,Renderer& rendere
         std::ifstream file(path);
         if (!file) throw std::runtime_error("Cannot open scene");
         auto doc=YAML::Load(file);
-        fields(doc,{"version","camera","ambient","meshes","objects"});
+        fields(doc,{"version","camera","ambient","background","meshes","objects"});
         if (!doc["version"]||doc["version"].as<int>()!=1) throw std::runtime_error("Scene version must be 1");
         SceneDocument result;
+        if (auto b=doc["background"]) {
+            if (!b.IsMap()) throw std::runtime_error("background must be a mapping");
+            auto type=b["type"]?b["type"].as<std::string>():std::string("color");
+            auto rgb=[](const YAML::Node& value) {
+                if (!value.IsSequence() || value.size()!=3)
+                    throw std::runtime_error("Background colors must be [r, g, b], using 0..255");
+                return color(value);
+            };
+            auto& background=result.scene.background;
+            if (type=="color") {
+                fields(b,{"type","color"});
+                if (b["color"]) background.color=rgb(b["color"]);
+            } else if (type=="skybox") {
+                fields(b,{"type","sky_color","horizon_color","ground_color"});
+                background.type=BackgroundType::Skybox;
+                if (b["sky_color"]) background.skyColor=rgb(b["sky_color"]);
+                if (b["horizon_color"]) background.horizonColor=rgb(b["horizon_color"]);
+                if (b["ground_color"]) background.groundColor=rgb(b["ground_color"]);
+            } else throw std::runtime_error("Background type must be color or skybox");
+        }
         if (auto c=doc["camera"]) {
             fields(c,{"position","target","fov","speed"});
             if (c["position"]) result.camera.position=vec3(c["position"]);

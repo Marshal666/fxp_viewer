@@ -9,6 +9,65 @@ using namespace fxp_viewer;
 void require(bool value,const char* message) { if (!value) throw std::runtime_error(message); }
 void near(float a,float b) { require(std::abs(a-b)<0.0002f,"Transform mismatch"); }
 template<class F> void rejects(F f) { bool threw=false; try { f(); } catch (const std::exception&) { threw=true; } require(threw,"Expected rejection"); }
+Color sample(int x,int y) {
+    auto image=LoadImageFromScreen();
+    auto pixel=GetImageColor(image,x,y);
+    UnloadImage(image);
+    return pixel;
+}
+bool sameColor(Color a,Color b) {
+    return std::abs(int(a.r)-int(b.r))<=2 && std::abs(int(a.g)-int(b.g))<=2 && std::abs(int(a.b)-int(b.b))<=2;
+}
+void testBackgrounds(Viewer& viewer,const std::filesystem::path& project) {
+    std::filesystem::create_directories("test-output");
+    auto fixture=std::filesystem::path("test-output/background.yaml");
+    auto load=[&](const char* background) {
+        { std::ofstream f(fixture); f<<"version: 1\nbackground: "<<background<<"\n"; }
+        return viewer.loadScene(fixture);
+    };
+    require(load("{type: color, color: [24, 28, 36]}"),"Solid background failed to load");
+    viewer.frame(0);
+    require(sameColor(sample(20,100),{24,28,36,255}),"Solid background did not render");
+    for (auto invalid: {"{type: invalid}","{color: [256, 0, 0]}","{color: [-1, 0, 0]}",
+                       "{color: [0, 0]}","{color: [0, 0, 0, 255]}","black",
+                       "{type: skybox, color: [0, 0, 0]}","{type: color, sky_color: [0, 0, 0]}",
+                       "{type: color, type: skybox}","{type: skybox, sky_color: [0, 0, 999]}"}) {
+        require(!load(invalid),"Invalid background accepted");
+        require(viewer.scene().background.type==BackgroundType::Color &&
+                sameColor(viewer.scene().background.color,{24,28,36,255}),"Failed load changed background");
+    }
+    require(load("{type: skybox, sky_color: [255, 0, 0], horizon_color: [0, 255, 0], ground_color: [0, 0, 255]}"),
+            "Skybox failed to load");
+    CameraSettings camera; camera.position={0,0,3}; camera.target={0,0,0};
+    viewer.setCamera(camera); viewer.frame(0);
+    auto top=sample(GetScreenWidth()/2,100);
+    auto bottom=sample(GetScreenWidth()/2,GetScreenHeight()-100);
+    require(top.r>100 && top.b<3 && bottom.b>200 && bottom.r<3,"Skybox colors or horizon are incorrect");
+    camera.target={0,10,2};
+    viewer.setCamera(camera); viewer.frame(0);
+    require(sameColor(sample(GetScreenWidth()/2,100),{255,0,0,255}),"Skybox did not follow camera pitch");
+    auto pitched=sample(20,100);
+    camera.position=Vector3Add(camera.position,{100,50,-80});
+    camera.target=Vector3Add(camera.target,{100,50,-80});
+    viewer.setCamera(camera); viewer.frame(0);
+    require(sameColor(sample(20,100),pitched),"Skybox moved with camera translation");
+    camera.position={0,0,3}; camera.target={0,0,0};
+    viewer.setCamera(camera);
+    viewer.scene().ambient=WHITE; viewer.scene().ambientIntensity=1;
+    viewer.scene().addMesh("foreground",viewer.renderer().cube());
+    viewer.frame(0);
+    require(sameColor(sample(GetScreenWidth()/2,GetScreenHeight()/2),WHITE),"Skybox obscured foreground geometry");
+    require(load("{color: [36, 28, 24]}"),"Skybox to color reload failed");
+    viewer.frame(0);
+    require(sameColor(sample(20,100),{36,28,24,255}),"Skybox shader leaked into solid background");
+    require(viewer.loadScene(project/"examples/empty.yaml"),"Empty scene failed to load");
+    viewer.frame(0);
+    require(viewer.scene().background.type==BackgroundType::Color && sameColor(sample(20,100),BLACK),
+            "Omitted background did not restore black");
+    require(viewer.loadScene(project/"examples/skybox.yaml"),"Skybox example failed to load");
+    viewer.frame(0);
+    std::cout<<"Background validation, rendering, camera and reload tests passed\n";
+}
 int main(int argc,char** argv) {
     try {
         Scene scene;
@@ -92,6 +151,7 @@ int main(int argc,char** argv) {
             viewer.toggleFullscreen(); viewer.frame(0);
             require(!IsWindowState(FLAG_BORDERLESS_WINDOWED_MODE),"Fullscreen did not deactivate");
             require(GetScreenWidth()==width&&GetScreenHeight()==height,"Window dimensions were not restored");
+            testBackgrounds(viewer,project);
             std::cout<<"Rendering, asset, animation, reload and failure-preservation tests passed\n";
         }
         return 0;

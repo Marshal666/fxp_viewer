@@ -4,7 +4,8 @@ A small C++17 3D viewer for physics experiments. Simulation projects can link
 its library and publish object poses through a simple C++ API. There is no
 physics implementation or fxp_math dependency.
 
-- Black viewport with fly, pan, orbit and dolly camera controls.
+- Configurable solid-color or procedural-skybox background (black by default),
+  with fly, pan, orbit and dolly camera controls.
 - Resizable window, borderless fullscreen, File/Open/Exit and View/Reset Camera.
 - YAML scenes with hierarchies, local transforms, meshes and lights.
 - Static OBJ, glTF and GLB models; limited glTF/GLB skeletal animation.
@@ -66,6 +67,9 @@ CMake downloads pinned sources with SHA-256 verification: raylib 6.2, raygui 5.0
 yaml-cpp 0.8.0. Offline builds can set FETCHCONTENT_SOURCE_DIR_RAYLIB,
 FETCHCONTENT_SOURCE_DIR_RAYGUI and FETCHCONTENT_SOURCE_DIR_YAML_CPP to unpacked
 source directories.
+
+See [background settings](docs/scenes.md#background) and the runnable
+[skybox example](examples/skybox.yaml).
 
 ## Controls
 

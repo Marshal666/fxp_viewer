@@ -94,11 +94,38 @@ BoundingBox MeshAsset::bounds() const { return impl_->bounds; }
 
 struct Renderer::Impl {
     Shader shader{};
+    Shader skybox{};
+    int skyForward=-1,skyRight=-1,skyUp=-1,skyScale=-1;
+    int skyColor=-1,horizonColor=-1,groundColor=-1;
     int ambient=-1,lightCount=-1,positions=-1,directions=-1,colors=-1,skinned=-1,bones=-1,mirrored=-1;
     std::vector<std::weak_ptr<MeshAsset>> assets;
     struct Item { const Object* object; Matrix world; };
     std::vector<Item> items;
     std::vector<std::pair<ObjectId,Matrix>> stack;
+    void drawBackground(const Background& background,const Camera3D& camera) {
+        Color clear=background.color;
+        clear.a=255;
+        ClearBackground(clear);
+        if (background.type!=BackgroundType::Skybox) return;
+        auto forward=Vector3Normalize(Vector3Subtract(camera.target,camera.position));
+        auto right=Vector3Normalize(Vector3CrossProduct(forward,camera.up));
+        auto up=Vector3Normalize(Vector3CrossProduct(right,forward));
+        float tangent=camera.projection==CAMERA_PERSPECTIVE?std::tan(camera.fovy*DEG2RAD/2):0;
+        float aspect=static_cast<float>(GetScreenWidth())/std::max(GetScreenHeight(),1);
+        Vector2 scale{tangent*aspect,tangent};
+        auto rgb=[](Color c) { return Vector3{c.r/255.0f,c.g/255.0f,c.b/255.0f}; };
+        auto sky=rgb(background.skyColor),horizon=rgb(background.horizonColor),ground=rgb(background.groundColor);
+        SetShaderValue(skybox,skyForward,&forward,SHADER_UNIFORM_VEC3);
+        SetShaderValue(skybox,skyRight,&right,SHADER_UNIFORM_VEC3);
+        SetShaderValue(skybox,skyUp,&up,SHADER_UNIFORM_VEC3);
+        SetShaderValue(skybox,skyScale,&scale,SHADER_UNIFORM_VEC2);
+        SetShaderValue(skybox,skyColor,&sky,SHADER_UNIFORM_VEC3);
+        SetShaderValue(skybox,horizonColor,&horizon,SHADER_UNIFORM_VEC3);
+        SetShaderValue(skybox,groundColor,&ground,SHADER_UNIFORM_VEC3);
+        BeginShaderMode(skybox);
+        DrawRectangle(0,0,GetScreenWidth(),GetScreenHeight(),WHITE);
+        EndShaderMode(); // Flush the background before entering depth-tested 3D.
+    }
 };
 Renderer::Renderer():impl_(std::make_unique<Impl>()) {
     if (!IsWindowReady()) throw std::runtime_error("Renderer requires an open graphics context");
@@ -116,11 +143,26 @@ Renderer::Renderer():impl_(std::make_unique<Impl>()) {
     r.skinned=GetShaderLocation(r.shader,"skinned");
     r.bones=GetShaderLocation(r.shader,"boneMatrices[0]");
     r.mirrored=GetShaderLocation(r.shader,"mirrored");
+    r.skybox=LoadShaderFromMemory(skyboxVertex,skyboxFragment);
+    if (!IsShaderValid(r.skybox) || r.skybox.id==rlGetShaderIdDefault()) {
+        UnloadShader(r.skybox);
+        UnloadShader(r.shader);
+        r.skybox={}; r.shader={};
+        throw std::runtime_error("Could not compile OpenGL 3.3 skybox shader");
+    }
+    r.skyForward=GetShaderLocation(r.skybox,"cameraForward");
+    r.skyRight=GetShaderLocation(r.skybox,"cameraRight");
+    r.skyUp=GetShaderLocation(r.skybox,"cameraUp");
+    r.skyScale=GetShaderLocation(r.skybox,"viewScale");
+    r.skyColor=GetShaderLocation(r.skybox,"skyColor");
+    r.horizonColor=GetShaderLocation(r.skybox,"horizonColor");
+    r.groundColor=GetShaderLocation(r.skybox,"groundColor");
 }
 Renderer::~Renderer() {
     // Release GPU resources while context is still alive, even when callers
     // retained handles past the viewer's lifetime.
     for (auto& weak:impl_->assets) if (auto mesh=weak.lock()) mesh->impl_->release();
+    UnloadShader(impl_->skybox);
     UnloadShader(impl_->shader);
 }
 MeshHandle Renderer::adoptModel(Model model) {
@@ -256,6 +298,7 @@ void Renderer::updateAnimations(Scene& scene,double dt) {
 }
 void Renderer::draw(const Scene& scene,const Camera3D& camera) {
     auto& r=*impl_;
+    r.drawBackground(scene.background,camera);
     r.items.clear(); r.stack.clear();
     for (auto id:scene.roots()) r.stack.push_back({id,MatrixIdentity()});
     while (!r.stack.empty()) {

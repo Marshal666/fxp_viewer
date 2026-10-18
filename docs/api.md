@@ -105,6 +105,25 @@ toggleFullscreen() preserves/restores window position and size.
 
 For an already open raylib window, own a Renderer and Scene directly. Call
 updateAnimations(scene,dt) and draw(scene,camera) inside BeginDrawing/EndDrawing.
-Renderer::draw manages its own 3D mode. Destroy the renderer before closing the
-context. All operations run on the context's thread.
+Renderer::draw clears the target, renders the scene background, and manages its
+own 3D mode. Destroy the renderer before closing the context. All operations run
+on the context's thread.
 
+## Background
+
+Change scene.background directly, including at runtime:
+
+~~~cpp
+scene.background.type = fxp_viewer::BackgroundType::Color;
+scene.background.color = {24, 28, 36, 255};
+
+// A procedural, camera-relative sky with a world Y-up horizon:
+scene.background.type = fxp_viewer::BackgroundType::Skybox;
+scene.background.skyColor = {55, 105, 180, 255};
+scene.background.horizonColor = {190, 215, 235, 255};
+scene.background.groundColor = {42, 48, 58, 255};
+~~~
+
+All background colors are opaque sRGB; alpha is ignored. The default background
+is black. Background settings are visual only and do not affect ambient or other
+lights. Skybox rendering uses one fullscreen draw and no texture assets.

@@ -53,6 +53,15 @@ private:
     std::string name_;
     std::vector<ObjectId> children_;
 };
+enum class BackgroundType { Color, Skybox };
+// Opaque sRGB colors. The skybox is an infinite, Y-up procedural gradient.
+struct Background {
+    BackgroundType type = BackgroundType::Color;
+    Color color = BLACK;
+    Color skyColor{55,105,180,255};
+    Color horizonColor{190,215,235,255};
+    Color groundColor{42,48,58,255};
+};
 class Scene {
 public:
     Scene() = default;
@@ -78,6 +87,7 @@ public:
     Matrix worldMatrix(ObjectId id) const;
     const std::map<ObjectId,Object>& objects() const { return objects_; }
     const std::vector<ObjectId>& roots() const { return roots_; }
+    Background background;
     Color ambient = WHITE;
     float ambientIntensity = 0.12f;
 private:
