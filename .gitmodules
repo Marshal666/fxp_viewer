@@ -1,0 +1,3 @@
+[submodule "modules/fxp_physics"]
+	path = modules/fxp_physics
+	url = https://github.com/Marshal666/fxp_physics.git
