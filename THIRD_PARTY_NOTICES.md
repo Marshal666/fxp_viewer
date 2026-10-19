@@ -17,3 +17,8 @@ Their reproducible source is tools/generate-demo-assets.py. No third-party
 sample art is used.
 
 
+
+Physics playback builds the fxp_physics submodule and its pinned fxp_math
+dependency. Their license texts are retained in
+[modules/fxp_physics/LICENSE](modules/fxp_physics/LICENSE) and
+[modules/fxp_physics/external/fxp_math/LICENSE](modules/fxp_physics/external/fxp_math/LICENSE).

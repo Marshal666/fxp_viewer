@@ -1,0 +1,344 @@
+# Open this scene and press Play. Reset restores both demonstrations.
+version: 1
+background:
+  type: skybox
+  sky_color: [48, 83, 120]
+  horizon_color: [160, 183, 199]
+  ground_color: [35, 43, 52]
+camera:
+  position: [18, 12, 22]
+  target: [0, 2, 1]
+  fov: 55
+physics:
+  tick_hz: 60
+  substeps: 4
+  velocity_iterations: 12
+  gravity: [0, -9.81, 0]
+  seed: 1234
+ambient:
+  color: [210, 225, 255]
+  intensity: 0.25
+meshes:
+  cube: { primitive: cube }
+  ball: { primitive: sphere }
+objects:
+  - id: sun
+    light:
+      type: directional
+      direction: [-1, -2, -1]
+      color: [255, 239, 215]
+      intensity: 1.1
+  - id: ground
+    mesh: cube
+    color: [79, 94, 104]
+    transform:
+      position: [0, -0.5, 0]
+      scale: [30, 1, 26]
+    physics:
+      type: static
+      collider: { shape: box, half_extents: [15, 0.5, 13] }
+      material: { static_friction: 0.7, dynamic_friction: 0.5 }
+  # A heavy ball rolls into a 5 x 4 wall on the left.
+  - id: projectile
+    mesh: ball
+    color: [245, 106, 65]
+    transform:
+      position: [-4, 1, 8]
+      scale: [1.5, 1.5, 1.5]
+    physics:
+      mass: 12
+      linear_velocity: [0, 0, -16]
+      linear_damping: 0.01
+      collider: { shape: sphere, radius: 0.75 }
+      material: { static_friction: 0.4, dynamic_friction: 0.25, restitution: 0.1 }
+  - id: wall_0_0
+    mesh: cube
+    color: [190, 155, 95]
+    transform:
+      position: [-6.04, 0.50, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_0_1
+    mesh: cube
+    color: [176, 141, 81]
+    transform:
+      position: [-5.02, 0.50, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_0_2
+    mesh: cube
+    color: [190, 155, 95]
+    transform:
+      position: [-4.00, 0.50, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_0_3
+    mesh: cube
+    color: [176, 141, 81]
+    transform:
+      position: [-2.98, 0.50, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_0_4
+    mesh: cube
+    color: [190, 155, 95]
+    transform:
+      position: [-1.96, 0.50, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_1_0
+    mesh: cube
+    color: [202, 165, 107]
+    transform:
+      position: [-6.04, 1.52, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_1_1
+    mesh: cube
+    color: [188, 151, 93]
+    transform:
+      position: [-5.02, 1.52, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_1_2
+    mesh: cube
+    color: [202, 165, 107]
+    transform:
+      position: [-4.00, 1.52, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_1_3
+    mesh: cube
+    color: [188, 151, 93]
+    transform:
+      position: [-2.98, 1.52, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_1_4
+    mesh: cube
+    color: [202, 165, 107]
+    transform:
+      position: [-1.96, 1.52, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_2_0
+    mesh: cube
+    color: [214, 175, 119]
+    transform:
+      position: [-6.04, 2.54, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_2_1
+    mesh: cube
+    color: [200, 161, 105]
+    transform:
+      position: [-5.02, 2.54, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_2_2
+    mesh: cube
+    color: [214, 175, 119]
+    transform:
+      position: [-4.00, 2.54, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_2_3
+    mesh: cube
+    color: [200, 161, 105]
+    transform:
+      position: [-2.98, 2.54, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_2_4
+    mesh: cube
+    color: [214, 175, 119]
+    transform:
+      position: [-1.96, 2.54, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_3_0
+    mesh: cube
+    color: [226, 185, 131]
+    transform:
+      position: [-6.04, 3.56, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_3_1
+    mesh: cube
+    color: [212, 171, 117]
+    transform:
+      position: [-5.02, 3.56, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_3_2
+    mesh: cube
+    color: [226, 185, 131]
+    transform:
+      position: [-4.00, 3.56, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_3_3
+    mesh: cube
+    color: [212, 171, 117]
+    transform:
+      position: [-2.98, 3.56, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  - id: wall_3_4
+    mesh: cube
+    color: [226, 185, 131]
+    transform:
+      position: [-1.96, 3.56, 0]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.6, dynamic_friction: 0.4 }
+  # Deliberately overbalanced tower: eight cubes offset toward the right.
+  - id: tower_0
+    mesh: cube
+    color: [70, 160, 205]
+    transform:
+      position: [3.50, 0.50, -1]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.65, dynamic_friction: 0.45 }
+  - id: tower_1
+    mesh: cube
+    color: [78, 167, 210]
+    transform:
+      position: [3.72, 1.52, -1]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.65, dynamic_friction: 0.45 }
+  - id: tower_2
+    mesh: cube
+    color: [86, 174, 215]
+    transform:
+      position: [3.94, 2.54, -1]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.65, dynamic_friction: 0.45 }
+  - id: tower_3
+    mesh: cube
+    color: [94, 181, 220]
+    transform:
+      position: [4.16, 3.56, -1]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.65, dynamic_friction: 0.45 }
+  - id: tower_4
+    mesh: cube
+    color: [102, 188, 225]
+    transform:
+      position: [4.38, 4.58, -1]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.65, dynamic_friction: 0.45 }
+  - id: tower_5
+    mesh: cube
+    color: [110, 195, 230]
+    transform:
+      position: [4.60, 5.60, -1]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.65, dynamic_friction: 0.45 }
+  - id: tower_6
+    mesh: cube
+    color: [118, 202, 235]
+    transform:
+      position: [4.82, 6.62, -1]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.65, dynamic_friction: 0.45 }
+  - id: tower_7
+    mesh: cube
+    color: [126, 209, 240]
+    transform:
+      position: [5.04, 7.64, -1]
+    physics:
+      mass: 1
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+      material: { static_friction: 0.65, dynamic_friction: 0.45 }
+
+  # Low perimeter rails keep the rolling ball on the platform.
+  - id: rail_back
+    mesh: cube
+    color: [67, 80, 92]
+    transform:
+      position: [0, 0.75, -12.75]
+      scale: [30, 1.5, 0.5]
+    physics:
+      type: static
+      collider: { shape: box, half_extents: [15, 0.75, 0.25] }
+  - id: rail_front
+    mesh: cube
+    color: [67, 80, 92]
+    transform:
+      position: [0, 0.75, 12.75]
+      scale: [30, 1.5, 0.5]
+    physics:
+      type: static
+      collider: { shape: box, half_extents: [15, 0.75, 0.25] }
+  - id: rail_left
+    mesh: cube
+    color: [67, 80, 92]
+    transform:
+      position: [-14.75, 0.75, 0]
+      scale: [0.5, 1.5, 25]
+    physics:
+      type: static
+      collider: { shape: box, half_extents: [0.25, 0.75, 12.5] }
+  - id: rail_right
+    mesh: cube
+    color: [67, 80, 92]
+    transform:
+      position: [14.75, 0.75, 0]
+      scale: [0.5, 1.5, 25]
+    physics:
+      type: static
+      collider: { shape: box, half_extents: [0.25, 0.75, 12.5] }

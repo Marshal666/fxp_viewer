@@ -1,13 +1,15 @@
 ﻿# fxp_viewer
 
 A small C++17 3D viewer for physics experiments. Simulation projects can link
-its library and publish object poses through a simple C++ API. There is no
-physics implementation or fxp_math dependency.
+its library and publish object poses through a simple C++ API. A small
+PhysicsInteractor connects the standalone fxp_physics submodule to the viewer;
+the physics solver remains entirely in that module.
 
 - Configurable solid-color or procedural-skybox background (black by default),
   with fly, pan, orbit and dolly camera controls.
 - Resizable window, borderless fullscreen, File/Open/Exit and View/Reset Camera.
-- YAML scenes with hierarchies, local transforms, meshes and lights.
+- YAML scenes with hierarchies, local transforms, meshes, lights and physics.
+- Bottom-centre Play, Pause, Step and Reset controls for fixed-tick simulation.
 - Static OBJ, glTF and GLB models; limited glTF/GLB skeletal animation.
 - Diffuse lighting, eight directional/point lights, ambient light, color textures
   and object tint. GPU skinning, shared mesh assets and mipmaps.
@@ -15,6 +17,19 @@ physics implementation or fxp_math dependency.
 
 Coordinates are **right handed, Y up, metres**. Rendering and visual animation
 use floating point. Simulation owns its fixed timestep and deterministic state.
+
+Initialize the pinned physics/math submodules once after cloning:
+
+~~~sh
+git submodule update --init --recursive
+~~~
+
+Try [examples/physics_playground.yaml](examples/physics_playground.yaml): a heavy
+ball hits a cube wall beside an overbalanced tower. Open it with File > Open,
+drag it into the window, or pass its path on the command line, then press Play.
+Scenes start paused. Step pauses and advances one whole tick; Reset restores the
+initial physics snapshot and body transforms, leaving the camera where it is.
+Scenes without physics keep the controls disabled.
 
 ## Windows
 
@@ -136,8 +151,9 @@ Only one Viewer/window can be alive at a time.
 
 ## Verification
 
-Normal CTest checks require no window. They cover transform composition,
-right-handed rotations, reparenting, invalid transforms, cycles, IDs and removal.
+Normal CTest checks require no window. They cover scene transforms and IDs plus
+physics playback, fixed-tick scheduling, collisions, exact reset/replay, frame
+cadence independence, bounded catch-up and recovery after a simulation error.
 
 The graphics suite needs a desktop/OpenGL context (or the Xvfb command above):
 
@@ -147,7 +163,9 @@ The graphics suite needs a desktop/OpenGL context (or the Xvfb command above):
 
 It checks model formats, custom meshes, changes in rendered skeletal poses,
 independent animation clocks, reload, failure preservation and fullscreen/window
-restoration.
+restoration. It also clicks the playback buttons, validates physics YAML, checks
+wall impact/tower collapse, and prints the demo's tick-240 physics checksum for
+cross-platform comparison.
 
 For a reproducible screenshot:
 
@@ -155,8 +173,15 @@ For a reproducible screenshot:
 fxp_viewer examples/showcase.yaml --frames 60 --screenshot showcase.png --hidden
 ~~~
 
-The frame-limited mode advances visual animation at 1/60 second per frame.
-Interactive playback uses elapsed frame time.
+The frame-limited mode advances at 1/60 second per frame. Add --play to start a
+physics scene automatically, including for a reproducible screenshot:
+
+~~~sh
+fxp_viewer examples/physics_playground.yaml --play --frames 241 --screenshot physics.png --hidden
+~~~
+
+Interactive playback uses elapsed frame time to schedule fixed physics ticks.
+Render interpolation never feeds back into the simulation.
 
 ## Initial limits
 

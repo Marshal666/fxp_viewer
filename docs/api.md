@@ -95,9 +95,10 @@ YAML rejects more than eight lights. If code creates more, the renderer uses the
 first eight enabled lights in its hierarchy traversal. Keep active lights within
 Renderer::maxLights or disable unused ones.
 
-Viewer::frame(dt) processes input, advances visual animation and draws. Use it
-with shouldClose()/requestClose(), or use run(callback) to execute a callback
-before each frame. Own your simulation's clock inside that callback.
+Viewer::frame(dt) processes input, advances the built-in interactor when playing,
+advances visual animation and draws. Use it with shouldClose()/requestClose(), or
+run(callback) to execute a callback before each frame. For an external simulation,
+use a scene without physics and own its clock inside that callback.
 
 loadScene(path) returns false and sets lastError() on failure, retaining the old
 scene. setCamera(settings) also establishes the reset-camera destination.
@@ -127,3 +128,58 @@ scene.background.groundColor = {42, 48, 58, 255};
 All background colors are opaque sRGB; alpha is ignored. The default background
 is black. Background settings are visual only and do not affect ambient or other
 lights. Skybox rendering uses one fullscreen draw and no texture assets.
+
+## Physics interactor
+
+After loading a physics scene, viewer.simulation() returns its PhysicsInteractor;
+it returns nullptr for an ordinary scene. The pointer is invalidated by a
+successful scene load, and preserved after a failed load.
+
+~~~cpp
+if (auto* sim = viewer.simulation()) {
+    sim->play();                  // Viewer::frame schedules fixed ticks.
+    sim->pause(viewer.scene());
+    sim->step(viewer.scene());     // Exactly one tick, then paused.
+    sim->reset(viewer.scene());    // Exact initial world, paused.
+    auto tick = sim->tick();
+    auto body = sim->bodyId(viewer.scene().find("projectile"));
+    auto state = sim->world().body(body); // Read-only physics inspection.
+}
+~~~
+
+For programmatic setup, construct PhysicsScene with the library's Config and
+PhysicsBody entries, then own a PhysicsInteractor alongside your Scene:
+
+~~~cpp
+using namespace fxp_physics;
+fxp_viewer::PhysicsScene setup;
+setup.config.timestep = 1_r / 60_r;
+fxp_viewer::PhysicsBody entry;
+entry.object = scene.addMesh("ball", renderer.sphere());
+scene.setPosition(entry.object, {0, 4, 0});
+entry.body.pose.position = {0, 4, 0};
+entry.shape = Shape::sphere(0.5_r);
+setup.bodies.push_back(entry);
+fxp_viewer::PhysicsInteractor simulation(scene, setup);
+simulation.play();
+// In your own frame loop:
+simulation.update(scene, frameSeconds);
+~~~
+
+The adapter owns the World, stable object/body bindings, fixed-step accumulator
+and initial snapshot. world() is read-only; bodyId() returns zero for unbound
+objects. tick(), time(), playing() and faulted() expose playback state. No OpenGL
+context is required by the adapter itself.
+
+Body poses come from PhysicsBody::body, not from floating-point scene transforms.
+Set both initial visual and physics transforms for programmatic setup. YAML does
+this automatically. Keep bound objects alive at the scene root for the adapter's
+lifetime; reconstruct/reload to change body membership or colliders. Decorative
+objects and children may still be added and removed with the normal Scene API.
+Manipulating a bound render pose does not teleport its physics body.
+
+Do not call update() yourself on viewer.simulation(): Viewer::frame already does.
+Standalone adapters use update(scene, dt). The physics module remains independent
+of the renderer; only the adapter converts its output poses into rendering floats.
+CMake reuses an existing fxp::physics target when embedding, otherwise builds the
+pinned submodule. See the scene-format document for scheduling and reset semantics.

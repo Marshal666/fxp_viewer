@@ -8,6 +8,10 @@
 namespace fxp_viewer {
 namespace {
 constexpr Color panel{23,26,31,255}, line{48,54,63,255}, text{206,214,224,255};
+Rectangle playbackPanel() {
+    float width=std::min(368.0f,static_cast<float>(GetScreenWidth())-24);
+    return {(GetScreenWidth()-width)/2,static_cast<float>(GetScreenHeight())-116,width,78};
+}
 std::string shorten(std::string s,int width,int size=16) {
     while (!s.empty() && MeasureText(s.c_str(),size)>width) s.pop_back();
     return s;
@@ -23,9 +27,12 @@ Gui::Gui() {
     GuiSetStyle(DEFAULT,TEXT_COLOR_FOCUSED,0xe0f4f5ff);
     GuiSetStyle(DEFAULT,BASE_COLOR_PRESSED,0x36505aff);
     GuiSetStyle(DEFAULT,TEXT_COLOR_PRESSED,0xffffffff);
+    GuiSetStyle(DEFAULT,BORDER_COLOR_DISABLED,0x30363fff);
+    GuiSetStyle(DEFAULT,BASE_COLOR_DISABLED,0x171a1fff);
+    GuiSetStyle(DEFAULT,TEXT_COLOR_DISABLED,0x66717dff);
 }
 bool Gui::blocksCamera() const {
-    return menu_!=0||picker_||!error_.empty()||GetMouseY()<36||GetMouseY()>GetScreenHeight()-26;
+    return menu_!=0||picker_||!error_.empty()||GetMouseY()<36||GetMouseY()>GetScreenHeight()-26||CheckCollisionPointRec(GetMousePosition(),playbackPanel());
 }
 void Gui::browse(const std::filesystem::path& input) {
     std::error_code ec;
@@ -62,6 +69,40 @@ void Gui::draw(Viewer& viewer) {
         12,GetScreenHeight()-18,10,{150,162,175,255});
     std::string info=std::to_string(viewer.scene().objects().size())+" objects   "+std::to_string(GetFPS())+" FPS";
     DrawText(info.c_str(),GetScreenWidth()-MeasureText(info.c_str(),10)-12,GetScreenHeight()-18,10,{150,162,175,255});
+    // Playback stays available in a fixed bottom-centre panel.
+    auto playback=playbackPanel();
+    DrawRectangleRec(playback,panel); DrawRectangleLinesEx(playback,1,line);
+    auto simulation=viewer.simulation();
+    const bool blocked=modalActive() || IsCursorHidden();
+    const float buttonWidth=(playback.width-40)/4;
+    const char* labels[]={"Play","Pause","Step","Reset"};
+    for (int i=0;i<4;++i) {
+        bool enabled=simulation && !blocked;
+        if (simulation) {
+            if (i==0) enabled=enabled&&!simulation->playing()&&!simulation->faulted();
+            if (i==1) enabled=enabled&&simulation->playing();
+            if (i==2) enabled=enabled&&!simulation->faulted();
+        }
+        if (!enabled) GuiDisable();
+        bool clicked=GuiButton({playback.x+8+i*(buttonWidth+8),playback.y+10,buttonWidth,30},labels[i]);
+        GuiEnable();
+        if (clicked && enabled) {
+            try {
+                if (i==0) simulation->play();
+                else if (i==1) simulation->pause(viewer.scene());
+                else if (i==2) simulation->step(viewer.scene());
+                else simulation->reset(viewer.scene());
+            } catch (const std::exception& e) { showError(e.what()); }
+        }
+    }
+    char status[128];
+    if (simulation)
+        std::snprintf(status,sizeof(status),"%s   Tick %llu   %.2f s",
+            simulation->faulted()?"Reset required":simulation->playing()?"Playing":"Paused",
+            static_cast<unsigned long long>(simulation->tick()),simulation->time());
+    else std::snprintf(status,sizeof(status),"No physics configured");
+    DrawText(status,static_cast<int>(playback.x+(playback.width-MeasureText(status,10))/2),
+        static_cast<int>(playback.y+54),10,text);
     if (menu_) {
         Rectangle box{menu_==1?10.0f:68.0f,38,220,76};
         DrawRectangleRec(box,panel); DrawRectangleLinesEx(box,1,line);
@@ -115,7 +156,7 @@ void Gui::draw(Viewer& viewer) {
         float w=std::min(width-32,800.0f);
         Rectangle box{(width-w)/2,100,w,std::min(height-140,340.0f)};
         DrawRectangleRec(box,panel); DrawRectangleLinesEx(box,1,{153,84,70,255});
-        DrawText("Could not open scene",static_cast<int>(box.x+18),118,20,{248,166,145,255});
+        DrawText("Viewer error",static_cast<int>(box.x+18),118,20,{248,166,145,255});
         std::string remaining=error_; int y=156;
         while (!remaining.empty() && y<box.y+box.height-60) {
             auto newline=remaining.find('\n');

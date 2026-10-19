@@ -39,13 +39,72 @@ Color color(const YAML::Node& node) {
 void positive(float n,const char* name) { if (n<=0) throw std::runtime_error(std::string(name)+" must be positive"); }
 void nonnegative(float n,const char* name) { if (n<0) throw std::runtime_error(std::string(name)+" cannot be negative"); }
 
-void readObjects(const YAML::Node& list,Scene& scene,const std::map<std::string,MeshHandle>& meshes,ObjectId parent,int depth,int& lights) {
+fxp_physics::Real fixedNumber(const YAML::Node& node) {
+    if (!node.IsScalar()) throw std::runtime_error("Expected a fixed-point decimal");
+    auto value=fxp_physics::Real::from_string(node.Scalar());
+    if (value==fxp_physics::Real::min() || value==fxp_physics::Real::max())
+        throw std::runtime_error("Physics number exceeds fixed-point range");
+    return value;
+}
+fxp_physics::Vec3 fixedVector(const YAML::Node& node) {
+    if (!node.IsSequence() || node.size()!=3) throw std::runtime_error("Expected [x, y, z]");
+    return {fixedNumber(node[0]),fixedNumber(node[1]),fixedNumber(node[2])};
+}
+PhysicsBody readPhysicsBody(const YAML::Node& node,ObjectId id) {
+    using namespace fxp_physics;
+    auto p=node["physics"];
+    fields(p,{"type","collider","mass","linear_velocity","angular_velocity","linear_damping",
+              "angular_damping","gravity_scale","allow_sleep","material"});
+    PhysicsBody result; result.object=id;
+    auto& body=result.body;
+    auto type=p["type"]?p["type"].as<std::string>():std::string("dynamic");
+    if (type=="static") body.type=BodyType::static_body;
+    else if (type=="kinematic") body.type=BodyType::kinematic;
+    else if (type!="dynamic") throw std::runtime_error("Physics type must be static, kinematic or dynamic");
+    if (auto t=node["transform"]) {
+        // Import the original decimal text, not the viewer's float transforms.
+        if (t["position"]) body.pose.position=fixedVector(t["position"]);
+        if (t["rotation"]) {
+            auto xyz=fixedVector(t["rotation"]);
+            if (fxp::abs(xyz.x)>360000 || fxp::abs(xyz.y)>360000 || fxp::abs(xyz.z)>360000)
+                throw std::runtime_error("Physics Euler angles must be within +/-360000 degrees");
+            xyz=xyz*(fxp::pi_v<Real>/180);
+            body.pose.rotation=Quat(xyz.z,{0,0,1})*(Quat(xyz.y,{0,1,0})*Quat(xyz.x,{1,0,0}));
+        }
+    }
+    if (p["mass"]) body.mass=fixedNumber(p["mass"]);
+    if (p["linear_velocity"]) body.linear_velocity=fixedVector(p["linear_velocity"]);
+    if (p["angular_velocity"]) body.angular_velocity=fixedVector(p["angular_velocity"]);
+    if (p["linear_damping"]) body.linear_damping=fixedNumber(p["linear_damping"]);
+    if (p["angular_damping"]) body.angular_damping=fixedNumber(p["angular_damping"]);
+    if (p["gravity_scale"]) body.gravity_scale=fixedNumber(p["gravity_scale"]);
+    if (p["allow_sleep"]) body.allow_sleep=p["allow_sleep"].as<bool>();
+    if (auto m=p["material"]) {
+        fields(m,{"static_friction","dynamic_friction","restitution"});
+        if (m["static_friction"]) result.material.static_friction=fixedNumber(m["static_friction"]);
+        if (m["dynamic_friction"]) result.material.dynamic_friction=fixedNumber(m["dynamic_friction"]);
+        if (m["restitution"]) result.material.restitution=fixedNumber(m["restitution"]);
+    }
+    auto collider=p["collider"];
+    if (!collider || !collider.IsMap()) throw std::runtime_error("Physics body needs a collider mapping");
+    auto shape=collider["shape"].as<std::string>();
+    if (shape=="box") {
+        fields(collider,{"shape","half_extents"});
+        result.shape=Shape::box(fixedVector(collider["half_extents"]));
+    } else if (shape=="sphere") {
+        fields(collider,{"shape","radius"});
+        result.shape=Shape::sphere(fixedNumber(collider["radius"]));
+    } else throw std::runtime_error("Collider shape must be box or sphere");
+    return result;
+}
+
+void readObjects(const YAML::Node& list,Scene& scene,const std::map<std::string,MeshHandle>& meshes,ObjectId parent,int depth,int& lights,PhysicsScene* physics) {
     if (!list.IsSequence()) throw std::runtime_error("objects/children must be a sequence");
     if (depth>64) throw std::runtime_error("Scene hierarchy exceeds 64 levels");
     for (auto node:list) {
         std::string id="<unnamed>";
         try {
-            fields(node,{"id","transform","mesh","color","visible","animation","light","children"});
+            fields(node,{"id","transform","mesh","color","visible","animation","light","children","physics"});
             id=node["id"].as<std::string>();
             if (scene.objects().size()>=100000) throw std::runtime_error("Too many scene objects");
             auto handle=scene.createObject(id,parent);
@@ -93,7 +152,12 @@ void readObjects(const YAML::Node& list,Scene& scene,const std::map<std::string,
                 }
                 if (l["enabled"]) light.enabled=l["enabled"].as<bool>();
             }
-            if (node["children"]) readObjects(node["children"],scene,meshes,handle,depth+1,lights);
+            if (node["physics"]) {
+                if (!physics) throw std::runtime_error("Object physics needs a scene-level physics mapping");
+                if (parent!=root) throw std::runtime_error("Physics bodies must be root objects; visual children are allowed");
+                physics->bodies.push_back(readPhysicsBody(node,handle));
+            }
+            if (node["children"]) readObjects(node["children"],scene,meshes,handle,depth+1,lights,physics);
         } catch (const std::exception& error) {
             throw std::runtime_error("Object '"+id+"' (line "+std::to_string(node.Mark().line+1)+"): "+error.what());
         }
@@ -106,9 +170,23 @@ SceneDocument loadSceneFile(const std::filesystem::path& input,Renderer& rendere
         std::ifstream file(path);
         if (!file) throw std::runtime_error("Cannot open scene");
         auto doc=YAML::Load(file);
-        fields(doc,{"version","camera","ambient","background","meshes","objects"});
+        fields(doc,{"version","camera","ambient","background","meshes","objects","physics"});
         if (!doc["version"]||doc["version"].as<int>()!=1) throw std::runtime_error("Scene version must be 1");
         SceneDocument result;
+        if (auto p=doc["physics"]) {
+            fields(p,{"tick_hz","substeps","velocity_iterations","gravity","seed"});
+            result.physics.emplace();
+            auto& setup=*result.physics;
+            if (p["tick_hz"]) {
+                auto hz=p["tick_hz"].as<int>();
+                if (hz<10 || hz>1000) throw std::runtime_error("Physics tick_hz must be 10..1000");
+                setup.config.timestep=fxp_physics::Real(1)/fxp_physics::Real(hz);
+            }
+            if (p["substeps"]) setup.config.substeps=p["substeps"].as<std::uint32_t>();
+            if (p["velocity_iterations"]) setup.config.velocity_iterations=p["velocity_iterations"].as<std::uint32_t>();
+            if (p["gravity"]) setup.config.gravity=fixedVector(p["gravity"]);
+            if (p["seed"]) setup.seed=p["seed"].as<std::uint64_t>();
+        }
         if (auto b=doc["background"]) {
             if (!b.IsMap()) throw std::runtime_error("background must be a mapping");
             auto type=b["type"]?b["type"].as<std::string>():std::string("color");
@@ -168,7 +246,7 @@ SceneDocument loadSceneFile(const std::filesystem::path& input,Renderer& rendere
                 meshes.emplace(name,std::move(mesh));
             }
         }
-        if (doc["objects"]) { int lights=0; readObjects(doc["objects"],result.scene,meshes,root,0,lights); }
+        if (doc["objects"]) { int lights=0; readObjects(doc["objects"],result.scene,meshes,root,0,lights,result.physics?&*result.physics:nullptr); }
         return result;
     } catch (const std::exception& error) {
         throw std::runtime_error(path.u8string()+"\n"+error.what());

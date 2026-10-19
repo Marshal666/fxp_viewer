@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include "renderer.hpp"
+#include "physics_interactor.hpp"
+#include <optional>
 #include <functional>
 namespace fxp_viewer {
 struct ViewerOptions {
@@ -15,7 +17,7 @@ struct CameraSettings {
     float fov = 55;
     float speed = 5;
 };
-struct SceneDocument { Scene scene; CameraSettings camera; };
+struct SceneDocument { Scene scene; CameraSettings camera; std::optional<PhysicsScene> physics; };
 // Throws without modifying an existing scene.
 SceneDocument loadSceneFile(const std::filesystem::path& path, Renderer& renderer);
 class Viewer {
@@ -27,6 +29,8 @@ public:
     Scene& scene();
     const Scene& scene() const;
     Renderer& renderer();
+    PhysicsInteractor* simulation(); // Null for a scene without physics.
+    const PhysicsInteractor* simulation() const;
     bool loadScene(const std::filesystem::path& path); // Keeps old scene on error.
     const std::string& lastError() const;
     void setCamera(const CameraSettings& camera);

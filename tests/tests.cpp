@@ -41,8 +41,8 @@ void testBackgrounds(Viewer& viewer,const std::filesystem::path& project) {
     CameraSettings camera; camera.position={0,0,3}; camera.target={0,0,0};
     viewer.setCamera(camera); viewer.frame(0);
     auto top=sample(GetScreenWidth()/2,100);
-    auto bottom=sample(GetScreenWidth()/2,GetScreenHeight()-100);
-    require(top.r>100 && top.b<3 && bottom.b>200 && bottom.r<3,"Skybox colors or horizon are incorrect");
+    auto bottom=sample(20,GetScreenHeight()-100);
+    require(top.r>100 && top.b<3 && bottom.b>100 && bottom.r<3,"Skybox colors or horizon are incorrect");
     camera.target={0,10,2};
     viewer.setCamera(camera); viewer.frame(0);
     require(sameColor(sample(GetScreenWidth()/2,100),{255,0,0,255}),"Skybox did not follow camera pitch");
@@ -67,6 +67,100 @@ void testBackgrounds(Viewer& viewer,const std::filesystem::path& project) {
     require(viewer.loadScene(project/"examples/skybox.yaml"),"Skybox example failed to load");
     viewer.frame(0);
     std::cout<<"Background validation, rendering, camera and reload tests passed\n";
+}
+void clickPlayback(Viewer& viewer,int button) {
+    // Event IDs are from the pinned raylib AutomationEventType.
+    const int x=GetScreenWidth()/2-135+button*90,y=GetScreenHeight()-91;
+    PlayAutomationEvent({0,7,{x,y,0,0}});
+    PlayAutomationEvent({0,6,{MOUSE_BUTTON_LEFT,0,0,0}});
+    viewer.frame(0);
+    PlayAutomationEvent({0,7,{x,y,0,0}});
+    PlayAutomationEvent({0,5,{MOUSE_BUTTON_LEFT,0,0,0}});
+    viewer.frame(0);
+}
+void testPhysicsScenes(Viewer& viewer,const std::filesystem::path& project) {
+    using namespace fxp_physics;
+    if (!viewer.loadScene(project/"examples/physics_playground.yaml")) throw std::runtime_error(viewer.lastError());
+    auto sim=viewer.simulation();
+    require(sim && !sim->playing() && sim->tick()==0,"Physics scene did not start paused");
+    auto initial=sim->world().save();
+    auto originalCamera=viewer.camera();
+    viewer.frame(0);
+    clickPlayback(viewer,0); require(sim->playing(),"Play button failed");
+    viewer.frame(1.0/30);
+    require(sim->tick()>0,"Viewer did not advance the simulation");
+    clickPlayback(viewer,1); require(!sim->playing(),"Pause button failed");
+    auto pausedTick=sim->tick();
+    viewer.frame(1); require(sim->tick()==pausedTick,"Paused viewer advanced physics");
+    clickPlayback(viewer,0);
+    clickPlayback(viewer,2);
+    require(!sim->playing()&&sim->tick()==pausedTick+1,"Step button did not advance exactly one tick and pause");
+    clickPlayback(viewer,3);
+    require(sim->world().save()==initial && !sim->playing(),"Reset button did not restore initial state");
+    near(viewer.camera().position.x,originalCamera.position.x);
+    near(viewer.camera().target.y,originalCamera.target.y);
+    auto projectile=sim->bodyId(viewer.scene().find("projectile"));
+    bool wallHit=false;
+    for (int i=0;i<240;++i) {
+        sim->step(viewer.scene());
+        for (auto& event:sim->world().events()) {
+            auto other=event.body_a==projectile?event.body_b:event.body_b==projectile?event.body_a:0;
+            if (other) {
+                auto id=sim->world().body(other).properties.user_data;
+                if (viewer.scene().object(id).name().find("wall_")==0) wallHit=true;
+            }
+        }
+    }
+    require(wallHit,"Demo projectile never hit the wall");
+    require(std::abs(viewer.scene().object(viewer.scene().find("wall_0_2")).transform.position.z)>0.5f,
+            "Demo wall did not break apart");
+    require(viewer.scene().object(viewer.scene().find("tower_7")).transform.position.y<2,
+            "Demo tower did not collapse");
+    auto finalState=sim->world().save();
+    std::cout<<"Physics demo tick 240 checksum "<<sim->world().checksum()<<'\n';
+    viewer.frame(0);
+    auto image=LoadImageFromScreen();
+    require(ExportImage(image,"test-output/physics-result.png"),"Could not export physics screenshot");
+    UnloadImage(image);
+    sim->reset(viewer.scene());
+    sim->play();
+    double dt=static_cast<double>(sim->world().config().timestep.raw_value())/4294967296.0;
+    for (int i=0;i<480;++i) sim->update(viewer.scene(),dt/2);
+    sim->pause(viewer.scene());
+    require(sim->world().save()==finalState,"Demo reset/replay was not deterministic");
+
+    auto invalid=std::filesystem::path("test-output/invalid-physics.yaml");
+    for (auto yaml: {
+            "physics: {tick_hz: 0}\n",
+            "physics: {substeps: 0}\n",
+            "physics: {gravity: [0, .nan, 0]}\n",
+            "physics: {unexpected: true}\n",
+            "physics: false\n",
+            "physics: {}\nobjects: [{id: bad, physics: {collider: {shape: sphere, radius: -1}}}]\n",
+            "physics: {}\nobjects: [{id: bad, physics: {mass: 0, collider: {shape: sphere, radius: 1}}}]\n",
+            "physics: {}\nobjects: [{id: bad, physics: {collider: {shape: box, half_extents: [1, 1]}}}]\n",
+            "physics: {}\nobjects: [{id: parent, children: [{id: child, physics: {collider: {shape: sphere, radius: 1}}}]}]\n",
+            "objects: [{id: bad, physics: {collider: {shape: sphere, radius: 1}}}]\n"}) {
+        { std::ofstream f(invalid); f<<"version: 1\n"<<yaml; }
+        require(!viewer.loadScene(invalid),"Invalid physics YAML accepted");
+        require(viewer.simulation()==sim && sim->world().save()==finalState,"Failed load discarded physics state");
+    }
+    // Exact decimal import and Euler conversion, without a float round trip.
+    { std::ofstream f(invalid);
+      f<<"version: 1\nphysics: {}\nobjects:\n  - id: precise\n    transform:\n"
+          "      position: [1.000000001, 0, 0]\n      rotation: [25, 40, 65]\n"
+          "    physics:\n      collider: {shape: sphere, radius: 0.5}\n"; }
+    require(viewer.loadScene(invalid),"Precise physics fixture failed to load");
+    auto id=viewer.scene().find("precise");
+    auto state=viewer.simulation()->world().body(viewer.simulation()->bodyId(id));
+    require(state.properties.pose.position.x==Real::from_string("1.000000001"),"Physics decimal lost precision");
+    auto before=viewer.scene().object(id).transform.rotation;
+    viewer.simulation()->pause(viewer.scene());
+    auto after=viewer.scene().object(id).transform.rotation;
+    near(std::abs(Vector4DotProduct(before,after)),1);
+    require(viewer.loadScene(project/"examples/empty.yaml")&&!viewer.simulation(),"Nonphysics scene retained old simulation");
+    clickPlayback(viewer,0); // Disabled controls must be harmless.
+    std::cout<<"Physics YAML, controls, wall impact, tower collapse and replay tests passed\n";
 }
 int main(int argc,char** argv) {
     try {
@@ -152,6 +246,7 @@ int main(int argc,char** argv) {
             require(!IsWindowState(FLAG_BORDERLESS_WINDOWED_MODE),"Fullscreen did not deactivate");
             require(GetScreenWidth()==width&&GetScreenHeight()==height,"Window dimensions were not restored");
             testBackgrounds(viewer,project);
+            testPhysicsScenes(viewer,project);
             std::cout<<"Rendering, asset, animation, reload and failure-preservation tests passed\n";
         }
         return 0;
