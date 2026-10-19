@@ -1,6 +1,7 @@
 #include <fxp_viewer/physics_interactor.hpp>
 #include <algorithm>
 #include <cmath>
+#include <chrono>
 #include <cstring>
 #include <set>
 #include <stdexcept>
@@ -100,8 +101,11 @@ void PhysicsInteractor::update(Scene& scene,double dt) {
     // Bound catch-up work after stalls. Drop excess wall time, never vary a tick.
     p.accumulator+=std::min(dt,0.25);
     int steps=0;
+    const auto started=std::chrono::steady_clock::now();
     while (p.accumulator>=timestep && steps<8) {
         p.advance(); p.accumulator-=timestep; ++steps; p.interpolate=true;
+        // Always finish an owed tick, then yield before catch-up stalls the UI.
+        if (std::chrono::steady_clock::now()-started>=std::chrono::milliseconds(8)) break;
     }
     if (p.accumulator>=timestep) p.accumulator=std::fmod(p.accumulator,timestep);
     try { p.sync(scene,p.interpolate?fraction(p.accumulator/timestep):fxp_physics::Real(1)); }

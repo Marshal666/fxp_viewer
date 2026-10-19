@@ -1,6 +1,9 @@
-﻿#include <fxp_viewer/viewer.hpp>
+#include <fxp_viewer/viewer.hpp>
 #include <raymath.h>
 #include <cmath>
+#include <chrono>
+#include <algorithm>
+#include <iomanip>
 #include <fstream>
 #include <iostream>
 #include <limits>
@@ -162,8 +165,68 @@ void testPhysicsScenes(Viewer& viewer,const std::filesystem::path& project) {
     clickPlayback(viewer,0); // Disabled controls must be harmless.
     std::cout<<"Physics YAML, controls, wall impact, tower collapse and replay tests passed\n";
 }
+int benchmarkPhysics(const std::filesystem::path& path) {
+    using Clock=std::chrono::steady_clock;
+    SetTraceLogLevel(LOG_WARNING);
+    ViewerOptions options; options.hidden=true; options.targetFps=0;
+    Viewer viewer(options);
+    auto document=loadSceneFile(path,viewer.renderer());
+    require(document.physics.has_value(),"Benchmark needs a physics scene");
+    const auto& setup=*document.physics;
+    fxp_physics::World world(setup.config,setup.seed);
+    for (const auto& entry:setup.bodies) {
+        auto desc=entry.body; desc.user_data=entry.object;
+        fxp_physics::ColliderDesc collider;
+        collider.body=world.create_body(desc); collider.shape=entry.shape; collider.material=entry.material;
+        world.create_collider(collider);
+    }
+    std::vector<double> times;
+    double total=0,batch=0;
+    unsigned maxContacts=0;
+    for (int i=0;i<240;++i) {
+        auto begin=Clock::now();
+        world.step();
+        double ms=std::chrono::duration<double,std::milli>(Clock::now()-begin).count();
+        times.push_back(ms); total+=ms; batch+=ms;
+        maxContacts=std::max(maxContacts,world.stats().contacts);
+        if ((i+1)%60==0) {
+            std::cout<<"Ticks "<<i-58<<".."<<i+1<<": "<<batch/60<<" ms/tick\n";
+            batch=0;
+        }
+    }
+    std::sort(times.begin(),times.end());
+    std::cout<<std::fixed<<std::setprecision(3)
+        <<"Physics: mean "<<total/240<<" ms, p95 "<<times[227]<<" ms, max "<<times.back()
+        <<" ms; peak contacts "<<maxContacts<<"; checksum "<<world.checksum()<<'\n';
+    if (!viewer.loadScene(path)) throw std::runtime_error(viewer.lastError());
+    // Paused rendering includes the same objects and GUI, without physics work.
+    for (int i=0;i<10;++i) viewer.frame(0);
+    auto begin=Clock::now();
+    for (int i=0;i<120;++i) viewer.frame(0);
+    std::cout<<"Paused rendering: "<<std::chrono::duration<double,std::milli>(Clock::now()-begin).count()/120<<" ms/frame\n";
+    viewer.simulation()->play();
+    double delta=1.0/60.0,frameTotal=0; std::uint64_t maxTicks=0;
+    int frames=0;
+    while (frameTotal<5.0 && frames<10000) {
+        ++frames;
+        auto previous=viewer.simulation()->tick();
+        begin=Clock::now();
+        viewer.frame(delta);
+        delta=std::chrono::duration<double>(Clock::now()-begin).count();
+        frameTotal+=delta;
+        maxTicks=std::max(maxTicks,viewer.simulation()->tick()-previous);
+    }
+    std::cout<<"Playback: "<<frames/frameTotal<<" FPS, "<<frameTotal*1000/frames
+        <<" ms/frame, "<<viewer.simulation()->tick()<<" ticks, max "<<maxTicks<<" ticks/frame"
+        <<", simulation/wall time "<<viewer.simulation()->time()/frameTotal<<"x\n";
+    return 0;
+}
 int main(int argc,char** argv) {
     try {
+        if (argc>1 && std::string(argv[1])=="--benchmark") {
+            require(argc>2,"--benchmark needs a physics scene YAML path");
+            return benchmarkPhysics(std::filesystem::u8path(argv[2]));
+        }
         Scene scene;
         auto parent=scene.createObject("parent"),child=scene.createObject("child",parent);
         scene.setPosition(parent,{3,0,0}); scene.setRotationDegrees(parent,{0,0,90}); scene.setScale(parent,{2,2,2});

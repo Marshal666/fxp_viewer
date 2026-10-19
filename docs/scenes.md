@@ -1,4 +1,4 @@
-﻿# YAML scene format, version 1
+# YAML scene format, version 1
 
 UTF-8 YAML; asset paths are relative to the scene file. Unknown/duplicate fields
 are errors. Errors identify object IDs and YAML line numbers where possible.
@@ -216,7 +216,11 @@ tick; the camera remains usable. Reset restores the exact initial world snapshot
 transforms and pauses. It does not reset the camera or skeletal animation clocks.
 
 While playing, rendering interpolates between completed physics poses. Catch-up
-is capped at eight ticks per frame and 0.25 seconds of incoming frame time;
-excess wall time is dropped, so an overloaded simulation slows down instead of
-changing its timestep or freezing the UI. A physics exception stops playback and
-requires Reset. Unrelated scene animations retain their own existing clocks.
+is capped at eight ticks per frame, an 8 ms work budget, and 0.25 seconds of incoming
+frame time. An owed tick always finishes before checking the work budget, so one
+expensive tick can exceed 8 ms. Excess wall time is dropped: an overloaded
+simulation slows down instead of batching eight expensive ticks before rendering.
+Tick duration and physics results never change to meet the rendering budget.
+A physics exception stops playback and requires Reset. Unrelated scene animations
+retain their own existing clocks. The library defaults to 30 Hz; the playground
+explicitly uses 60 Hz and four substeps per tick. There is no sleep in physics.

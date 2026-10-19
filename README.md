@@ -1,4 +1,4 @@
-﻿# fxp_viewer
+# fxp_viewer
 
 A small C++17 3D viewer for physics experiments. Simulation projects can link
 its library and publish object poses through a simple C++ API. A small
@@ -166,6 +166,20 @@ independent animation clocks, reload, failure preservation and fullscreen/window
 restoration. It also clicks the playback buttons, validates physics YAML, checks
 wall impact/tower collapse, and prints the demo's tick-240 physics checksum for
 cross-platform comparison.
+
+To separate physics cost from rendering cost (use a Release build):
+
+~~~powershell
+.\build\windows-release\fxp_viewer_tests.exe --benchmark examples/physics_playground.yaml
+~~~
+
+This reports 240 individual physics tick timings, their checksum, paused rendering
+cost, and five seconds of playback. Frame FPS and simulation ticks per second are
+different measurements. Physics inherits the viewer's CMake build type; Release
+uses compiler optimization for both. The library has no tick-rate sleep.
+An 8 ms catch-up budget yields after an expensive tick so physics backlog cannot
+block rendering for eight long ticks. Under load, simulation time can still lag
+wall time. The fixed timestep and configured solver quality remain unchanged.
 
 For a reproducible screenshot:
 
