@@ -181,6 +181,29 @@ An 8 ms catch-up budget yields after an expensive tick so physics backlog cannot
 block rendering for eight long ticks. Under load, simulation time can still lag
 wall time. The fixed timestep and configured solver quality remain unchanged.
 
+For headless physics measurements, use the dependency's
+[benchmark suite](modules/fxp_physics/README.md#validation-and-performance).
+It includes the exact playground and scalable scenes at 100, 500, 1,000, 5,000
+and 10,000 moving bodies. The [performance report](modules/fxp_physics/docs/performance.md)
+records before/after timings and the limits of dense contact workloads.
+
+Ready-to-open scenes are in [examples/stress](examples/stress/): sparse dynamic
+spheres, kinematic spheres, and stacked boxes, each at all five sizes. Stack
+scenes include one additional static ground body.
+
+Generate additional copies for interactive viewer testing with Python:
+
+~~~sh
+python3 tools/generate_physics_stress.py --scene dynamic --bodies 10000 --output build/stress/dynamic_10000.yaml
+python3 tools/generate_physics_stress.py --scene stack --bodies 1000 --output build/stress/stack_1000.yaml
+~~~
+
+Choose `kinematic`, `dynamic`, or `stack` and any of the five counts above.
+Open the resulting YAML in the viewer and press Play. Existing files are
+preserved; choose a new output path to regenerate. These scenes retain the
+playground's 60 Hz, four substeps and 12 iterations. The headless suite isolates
+engine cost; viewer measurements also include drawing thousands of objects.
+
 For a reproducible screenshot:
 
 ~~~sh

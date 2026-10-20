@@ -1,0 +1,6029 @@
+# 500 moving bodies; open in fxp_viewer and press Play.
+# Stack scenes also contain one static ground body.
+version: 1
+background:
+  type: color
+  color: [24, 28, 36]
+camera:
+  position: [198, 198, 202]
+  target: [99, 0, 4]
+  fov: 55
+physics:
+  tick_hz: 60
+  substeps: 4
+  velocity_iterations: 12
+  gravity: [0, 0, 0]
+  seed: 1234
+ambient:
+  color: [220, 230, 255]
+  intensity: 0.35
+meshes:
+  cube: { primitive: cube }
+  ball: { primitive: sphere }
+objects:
+  - id: sun
+    light:
+      type: directional
+      direction: [-1, -2, -1]
+      color: [255, 239, 215]
+      intensity: 1.1
+  - id: body_0
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [0, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_1
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [2, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_2
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [4, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_3
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [6, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_4
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [8, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_5
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [10, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_6
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [12, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_7
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [14, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_8
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [16, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_9
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [18, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_10
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [20, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_11
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [22, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_12
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [24, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_13
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [26, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_14
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [28, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_15
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [30, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_16
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [32, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_17
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [34, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_18
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [36, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_19
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [38, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_20
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [40, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_21
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [42, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_22
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [44, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_23
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [46, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_24
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [48, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_25
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [50, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_26
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [52, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_27
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [54, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_28
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [56, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_29
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [58, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_30
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [60, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_31
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [62, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_32
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [64, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_33
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [66, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_34
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [68, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_35
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [70, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_36
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [72, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_37
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [74, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_38
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [76, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_39
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [78, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_40
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [80, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_41
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [82, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_42
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [84, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_43
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [86, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_44
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [88, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_45
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [90, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_46
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [92, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_47
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [94, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_48
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [96, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_49
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [98, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_50
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [100, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_51
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [102, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_52
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [104, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_53
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [106, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_54
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [108, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_55
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [110, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_56
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [112, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_57
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [114, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_58
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [116, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_59
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [118, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_60
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [120, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_61
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [122, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_62
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [124, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_63
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [126, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_64
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [128, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_65
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [130, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_66
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [132, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_67
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [134, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_68
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [136, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_69
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [138, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_70
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [140, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_71
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [142, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_72
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [144, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_73
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [146, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_74
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [148, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_75
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [150, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_76
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [152, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_77
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [154, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_78
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [156, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_79
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [158, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_80
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [160, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_81
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [162, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_82
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [164, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_83
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [166, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_84
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [168, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_85
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [170, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_86
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [172, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_87
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [174, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_88
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [176, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_89
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [178, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_90
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [180, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_91
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [182, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_92
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [184, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_93
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [186, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_94
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [188, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_95
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [190, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_96
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [192, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_97
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [194, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_98
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [196, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_99
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [198, 0, 0]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_100
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [0, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_101
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [2, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_102
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [4, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_103
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [6, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_104
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [8, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_105
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [10, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_106
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [12, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_107
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [14, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_108
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [16, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_109
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [18, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_110
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [20, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_111
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [22, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_112
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [24, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_113
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [26, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_114
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [28, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_115
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [30, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_116
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [32, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_117
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [34, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_118
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [36, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_119
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [38, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_120
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [40, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_121
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [42, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_122
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [44, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_123
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [46, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_124
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [48, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_125
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [50, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_126
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [52, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_127
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [54, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_128
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [56, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_129
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [58, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_130
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [60, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_131
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [62, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_132
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [64, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_133
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [66, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_134
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [68, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_135
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [70, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_136
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [72, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_137
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [74, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_138
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [76, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_139
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [78, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_140
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [80, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_141
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [82, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_142
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [84, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_143
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [86, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_144
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [88, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_145
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [90, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_146
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [92, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_147
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [94, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_148
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [96, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_149
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [98, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_150
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [100, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_151
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [102, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_152
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [104, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_153
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [106, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_154
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [108, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_155
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [110, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_156
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [112, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_157
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [114, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_158
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [116, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_159
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [118, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_160
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [120, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_161
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [122, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_162
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [124, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_163
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [126, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_164
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [128, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_165
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [130, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_166
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [132, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_167
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [134, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_168
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [136, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_169
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [138, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_170
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [140, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_171
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [142, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_172
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [144, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_173
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [146, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_174
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [148, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_175
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [150, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_176
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [152, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_177
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [154, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_178
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [156, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_179
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [158, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_180
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [160, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_181
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [162, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_182
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [164, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_183
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [166, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_184
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [168, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_185
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [170, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_186
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [172, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_187
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [174, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_188
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [176, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_189
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [178, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_190
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [180, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_191
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [182, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_192
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [184, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_193
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [186, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_194
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [188, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_195
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [190, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_196
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [192, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_197
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [194, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_198
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [196, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_199
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [198, 0, 2]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_200
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [0, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_201
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [2, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_202
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [4, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_203
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [6, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_204
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [8, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_205
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [10, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_206
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [12, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_207
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [14, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_208
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [16, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_209
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [18, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_210
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [20, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_211
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [22, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_212
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [24, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_213
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [26, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_214
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [28, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_215
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [30, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_216
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [32, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_217
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [34, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_218
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [36, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_219
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [38, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_220
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [40, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_221
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [42, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_222
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [44, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_223
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [46, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_224
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [48, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_225
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [50, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_226
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [52, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_227
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [54, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_228
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [56, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_229
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [58, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_230
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [60, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_231
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [62, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_232
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [64, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_233
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [66, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_234
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [68, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_235
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [70, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_236
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [72, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_237
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [74, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_238
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [76, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_239
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [78, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_240
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [80, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_241
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [82, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_242
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [84, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_243
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [86, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_244
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [88, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_245
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [90, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_246
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [92, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_247
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [94, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_248
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [96, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_249
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [98, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_250
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [100, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_251
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [102, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_252
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [104, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_253
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [106, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_254
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [108, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_255
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [110, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_256
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [112, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_257
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [114, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_258
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [116, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_259
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [118, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_260
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [120, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_261
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [122, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_262
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [124, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_263
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [126, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_264
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [128, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_265
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [130, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_266
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [132, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_267
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [134, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_268
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [136, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_269
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [138, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_270
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [140, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_271
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [142, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_272
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [144, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_273
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [146, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_274
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [148, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_275
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [150, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_276
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [152, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_277
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [154, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_278
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [156, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_279
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [158, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_280
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [160, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_281
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [162, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_282
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [164, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_283
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [166, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_284
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [168, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_285
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [170, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_286
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [172, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_287
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [174, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_288
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [176, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_289
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [178, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_290
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [180, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_291
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [182, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_292
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [184, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_293
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [186, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_294
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [188, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_295
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [190, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_296
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [192, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_297
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [194, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_298
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [196, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_299
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [198, 0, 4]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_300
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [0, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_301
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [2, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_302
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [4, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_303
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [6, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_304
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [8, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_305
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [10, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_306
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [12, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_307
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [14, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_308
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [16, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_309
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [18, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_310
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [20, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_311
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [22, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_312
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [24, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_313
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [26, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_314
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [28, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_315
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [30, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_316
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [32, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_317
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [34, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_318
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [36, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_319
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [38, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_320
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [40, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_321
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [42, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_322
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [44, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_323
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [46, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_324
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [48, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_325
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [50, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_326
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [52, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_327
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [54, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_328
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [56, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_329
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [58, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_330
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [60, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_331
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [62, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_332
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [64, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_333
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [66, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_334
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [68, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_335
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [70, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_336
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [72, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_337
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [74, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_338
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [76, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_339
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [78, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_340
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [80, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_341
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [82, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_342
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [84, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_343
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [86, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_344
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [88, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_345
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [90, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_346
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [92, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_347
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [94, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_348
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [96, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_349
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [98, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_350
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [100, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_351
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [102, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_352
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [104, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_353
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [106, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_354
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [108, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_355
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [110, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_356
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [112, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_357
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [114, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_358
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [116, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_359
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [118, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_360
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [120, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_361
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [122, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_362
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [124, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_363
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [126, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_364
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [128, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_365
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [130, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_366
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [132, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_367
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [134, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_368
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [136, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_369
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [138, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_370
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [140, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_371
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [142, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_372
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [144, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_373
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [146, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_374
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [148, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_375
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [150, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_376
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [152, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_377
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [154, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_378
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [156, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_379
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [158, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_380
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [160, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_381
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [162, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_382
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [164, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_383
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [166, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_384
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [168, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_385
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [170, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_386
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [172, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_387
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [174, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_388
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [176, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_389
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [178, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_390
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [180, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_391
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [182, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_392
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [184, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_393
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [186, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_394
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [188, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_395
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [190, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_396
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [192, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_397
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [194, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_398
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [196, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_399
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [198, 0, 6]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_400
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [0, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_401
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [2, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_402
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [4, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_403
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [6, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_404
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [8, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_405
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [10, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_406
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [12, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_407
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [14, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_408
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [16, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_409
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [18, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_410
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [20, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_411
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [22, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_412
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [24, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_413
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [26, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_414
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [28, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_415
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [30, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_416
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [32, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_417
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [34, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_418
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [36, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_419
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [38, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_420
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [40, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_421
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [42, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_422
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [44, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_423
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [46, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_424
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [48, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_425
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [50, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_426
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [52, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_427
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [54, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_428
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [56, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_429
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [58, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_430
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [60, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_431
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [62, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_432
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [64, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_433
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [66, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_434
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [68, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_435
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [70, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_436
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [72, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_437
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [74, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_438
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [76, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_439
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [78, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_440
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [80, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_441
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [82, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_442
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [84, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_443
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [86, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_444
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [88, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_445
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [90, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_446
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [92, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_447
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [94, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_448
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [96, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_449
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [98, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_450
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [100, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_451
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [102, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_452
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [104, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_453
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [106, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_454
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [108, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_455
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [110, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_456
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [112, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_457
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [114, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_458
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [116, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_459
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [118, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_460
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [120, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_461
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [122, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_462
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [124, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_463
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [126, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_464
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [128, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_465
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [130, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_466
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [132, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_467
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [134, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_468
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [136, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_469
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [138, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_470
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [140, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_471
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [142, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_472
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [144, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_473
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [146, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_474
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [148, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_475
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [150, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_476
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [152, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_477
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [154, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_478
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [156, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_479
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [158, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_480
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [160, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_481
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [162, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_482
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [164, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_483
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [166, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_484
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [168, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_485
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [170, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_486
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [172, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_487
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [174, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_488
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [176, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_489
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [178, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_490
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [180, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_491
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [182, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_492
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [184, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_493
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [186, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_494
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [188, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_495
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [190, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_496
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [192, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_497
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [194, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_498
+    mesh: ball
+    color: [225, 170, 95]
+    transform:
+      position: [196, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
+  - id: body_499
+    mesh: ball
+    color: [90, 170, 220]
+    transform:
+      position: [198, 0, 8]
+      scale: [0.8, 0.8, 0.8]
+    physics:
+      type: dynamic
+      linear_velocity: [0.5, 0, 0]
+      linear_damping: 0
+      allow_sleep: false
+      collider: { shape: sphere, radius: 0.4 }
