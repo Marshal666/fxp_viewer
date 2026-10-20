@@ -38,6 +38,7 @@ struct Viewer::Impl {
     Window window; // Construct first, destroy last.
     Renderer renderer;
     Scene scene;
+    std::unique_ptr<PhysicsInteractor> simulation;
     Gui gui;
     CameraSettings camera,initialCamera;
     std::string error;
@@ -96,12 +97,18 @@ Viewer::~Viewer()=default;
 Scene& Viewer::scene() { return impl_->scene; }
 const Scene& Viewer::scene() const { return impl_->scene; }
 Renderer& Viewer::renderer() { return impl_->renderer; }
+PhysicsInteractor* Viewer::simulation() { return impl_->simulation.get(); }
+const PhysicsInteractor* Viewer::simulation() const { return impl_->simulation.get(); }
 const std::string& Viewer::lastError() const { return impl_->error; }
 bool Viewer::loadScene(const std::filesystem::path& path) {
     try {
         auto document=loadSceneFile(path,impl_->renderer);
-        impl_->scene=std::move(document.scene);
+        // Build and validate the entire world before replacing the current scene.
+        std::unique_ptr<PhysicsInteractor> simulation;
+        if (document.physics) simulation=std::make_unique<PhysicsInteractor>(document.scene,*document.physics);
         setCamera(document.camera);
+        impl_->scene=std::move(document.scene);
+        impl_->simulation=std::move(simulation);
         impl_->error.clear();
         SetWindowTitle(("fxp_viewer - "+path.filename().u8string()).c_str());
         return true;
@@ -152,6 +159,13 @@ void Viewer::frame(double dt) {
         else if (!loadScene(selected)) v.gui.showError(lastError());
     }
     v.cameraInput(dt);
+    if (v.simulation) {
+        try { v.simulation->update(v.scene,dt); }
+        catch (const std::exception& e) {
+            v.error=e.what();
+            v.gui.showError("Simulation stopped: "+v.error+"\nReset the simulation before continuing.");
+        }
+    }
     v.renderer.updateAnimations(v.scene,dt);
     BeginDrawing();
     v.renderer.draw(v.scene,camera3d(v.camera));

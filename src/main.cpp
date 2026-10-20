@@ -6,21 +6,27 @@ int main(int argc,char** argv) {
         fxp_viewer::ViewerOptions options;
         std::filesystem::path scene,screenshot;
         int frames=-1;
+        bool play=false;
         for (int i=1;i<argc;++i) {
             std::string arg=argv[i];
             auto value=[&](){ if (++i>=argc) throw std::invalid_argument("Missing value for "+arg); return std::string(argv[i]); };
             if (arg=="--help") {
-                std::cout<<"fxp_viewer [scene.yaml] [--frames N] [--screenshot image.png] [--hidden]\n";
+                std::cout<<"fxp_viewer [scene.yaml] [--frames N] [--screenshot image.png] [--hidden] [--play]\n";
                 return 0;
             } else if (arg=="--frames") { frames=std::stoi(value()); if (frames<1) throw std::invalid_argument("--frames must be positive"); }
             else if (arg=="--screenshot") screenshot=std::filesystem::u8path(value());
             else if (arg=="--hidden") options.hidden=true;
+            else if (arg=="--play") play=true;
             else if (!arg.empty()&&arg[0]=='-') throw std::invalid_argument("Unknown option: "+arg);
             else if (!scene.empty()) throw std::invalid_argument("Specify only one scene");
             else scene=std::filesystem::u8path(arg);
         }
         fxp_viewer::Viewer viewer(options);
         if (!scene.empty()&&!viewer.loadScene(scene)) { std::cerr<<viewer.lastError()<<'\n'; return 1; }
+        if (play) {
+            if (!viewer.simulation()) throw std::invalid_argument("--play needs a scene with physics");
+            viewer.simulation()->play();
+        }
         if (frames<0) viewer.run();
         else for (int i=0;i<frames&&!viewer.shouldClose();++i) viewer.frame(1.0/60.0);
         if (!screenshot.empty()) {

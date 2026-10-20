@@ -1,0 +1,4038 @@
+# 500 moving bodies; open in fxp_viewer and press Play.
+# Stack scenes also contain one static ground body.
+version: 1
+background:
+  type: color
+  color: [24, 28, 36]
+camera:
+  position: [49, 98, 50]
+  target: [0, 4, -48]
+  fov: 55
+physics:
+  tick_hz: 60
+  substeps: 4
+  velocity_iterations: 12
+  gravity: [0, -9.81, 0]
+  seed: 1234
+ambient:
+  color: [220, 230, 255]
+  intensity: 0.35
+meshes:
+  cube: { primitive: cube }
+  ball: { primitive: sphere }
+objects:
+  - id: sun
+    light:
+      type: directional
+      direction: [-1, -2, -1]
+      color: [255, 239, 215]
+      intensity: 1.1
+  - id: ground
+    mesh: cube
+    color: [70, 80, 90]
+    transform:
+      position: [0, -0.5, 0]
+      scale: [200, 1, 200]
+    physics:
+      type: static
+      collider: { shape: box, half_extents: [100, 0.5, 100] }
+  - id: body_0
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-49, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_1
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-49, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_2
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-49, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_3
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-49, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_4
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-49, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_5
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-49, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_6
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-49, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_7
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-49, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_8
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-47, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_9
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-47, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_10
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-47, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_11
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-47, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_12
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-47, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_13
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-47, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_14
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-47, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_15
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-47, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_16
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-45, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_17
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-45, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_18
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-45, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_19
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-45, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_20
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-45, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_21
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-45, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_22
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-45, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_23
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-45, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_24
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-43, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_25
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-43, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_26
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-43, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_27
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-43, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_28
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-43, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_29
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-43, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_30
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-43, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_31
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-43, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_32
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-41, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_33
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-41, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_34
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-41, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_35
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-41, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_36
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-41, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_37
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-41, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_38
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-41, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_39
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-41, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_40
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-39, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_41
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-39, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_42
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-39, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_43
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-39, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_44
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-39, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_45
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-39, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_46
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-39, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_47
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-39, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_48
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-37, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_49
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-37, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_50
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-37, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_51
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-37, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_52
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-37, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_53
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-37, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_54
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-37, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_55
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-37, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_56
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-35, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_57
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-35, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_58
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-35, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_59
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-35, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_60
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-35, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_61
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-35, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_62
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-35, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_63
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-35, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_64
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-33, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_65
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-33, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_66
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-33, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_67
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-33, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_68
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-33, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_69
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-33, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_70
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-33, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_71
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-33, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_72
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-31, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_73
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-31, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_74
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-31, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_75
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-31, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_76
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-31, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_77
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-31, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_78
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-31, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_79
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-31, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_80
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-29, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_81
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-29, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_82
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-29, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_83
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-29, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_84
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-29, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_85
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-29, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_86
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-29, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_87
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-29, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_88
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-27, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_89
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-27, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_90
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-27, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_91
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-27, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_92
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-27, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_93
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-27, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_94
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-27, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_95
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-27, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_96
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-25, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_97
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-25, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_98
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-25, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_99
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-25, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_100
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-25, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_101
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-25, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_102
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-25, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_103
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-25, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_104
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-23, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_105
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-23, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_106
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-23, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_107
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-23, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_108
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-23, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_109
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-23, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_110
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-23, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_111
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-23, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_112
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-21, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_113
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-21, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_114
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-21, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_115
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-21, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_116
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-21, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_117
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-21, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_118
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-21, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_119
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-21, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_120
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-19, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_121
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-19, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_122
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-19, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_123
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-19, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_124
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-19, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_125
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-19, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_126
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-19, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_127
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-19, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_128
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-17, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_129
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-17, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_130
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-17, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_131
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-17, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_132
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-17, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_133
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-17, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_134
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-17, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_135
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-17, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_136
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-15, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_137
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-15, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_138
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-15, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_139
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-15, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_140
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-15, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_141
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-15, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_142
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-15, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_143
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-15, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_144
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-13, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_145
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-13, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_146
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-13, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_147
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-13, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_148
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-13, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_149
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-13, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_150
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-13, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_151
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-13, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_152
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-11, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_153
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-11, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_154
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-11, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_155
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-11, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_156
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-11, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_157
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-11, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_158
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-11, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_159
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-11, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_160
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-9, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_161
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-9, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_162
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-9, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_163
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-9, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_164
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-9, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_165
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-9, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_166
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-9, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_167
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-9, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_168
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-7, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_169
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-7, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_170
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-7, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_171
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-7, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_172
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-7, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_173
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-7, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_174
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-7, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_175
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-7, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_176
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-5, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_177
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-5, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_178
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-5, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_179
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-5, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_180
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-5, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_181
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-5, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_182
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-5, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_183
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-5, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_184
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-3, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_185
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-3, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_186
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-3, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_187
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-3, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_188
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-3, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_189
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-3, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_190
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-3, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_191
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-3, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_192
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-1, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_193
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-1, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_194
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-1, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_195
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-1, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_196
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-1, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_197
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-1, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_198
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-1, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_199
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-1, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_200
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [1, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_201
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [1, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_202
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [1, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_203
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [1, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_204
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [1, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_205
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [1, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_206
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [1, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_207
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [1, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_208
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [3, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_209
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [3, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_210
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [3, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_211
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [3, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_212
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [3, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_213
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [3, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_214
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [3, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_215
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [3, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_216
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [5, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_217
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [5, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_218
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [5, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_219
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [5, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_220
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [5, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_221
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [5, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_222
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [5, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_223
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [5, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_224
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [7, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_225
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [7, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_226
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [7, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_227
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [7, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_228
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [7, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_229
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [7, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_230
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [7, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_231
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [7, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_232
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [9, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_233
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [9, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_234
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [9, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_235
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [9, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_236
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [9, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_237
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [9, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_238
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [9, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_239
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [9, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_240
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [11, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_241
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [11, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_242
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [11, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_243
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [11, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_244
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [11, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_245
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [11, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_246
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [11, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_247
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [11, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_248
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [13, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_249
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [13, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_250
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [13, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_251
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [13, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_252
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [13, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_253
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [13, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_254
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [13, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_255
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [13, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_256
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [15, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_257
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [15, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_258
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [15, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_259
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [15, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_260
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [15, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_261
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [15, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_262
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [15, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_263
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [15, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_264
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [17, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_265
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [17, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_266
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [17, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_267
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [17, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_268
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [17, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_269
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [17, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_270
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [17, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_271
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [17, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_272
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [19, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_273
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [19, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_274
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [19, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_275
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [19, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_276
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [19, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_277
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [19, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_278
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [19, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_279
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [19, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_280
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [21, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_281
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [21, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_282
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [21, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_283
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [21, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_284
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [21, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_285
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [21, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_286
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [21, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_287
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [21, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_288
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [23, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_289
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [23, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_290
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [23, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_291
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [23, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_292
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [23, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_293
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [23, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_294
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [23, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_295
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [23, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_296
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [25, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_297
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [25, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_298
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [25, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_299
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [25, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_300
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [25, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_301
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [25, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_302
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [25, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_303
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [25, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_304
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [27, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_305
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [27, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_306
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [27, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_307
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [27, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_308
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [27, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_309
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [27, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_310
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [27, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_311
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [27, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_312
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [29, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_313
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [29, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_314
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [29, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_315
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [29, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_316
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [29, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_317
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [29, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_318
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [29, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_319
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [29, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_320
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [31, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_321
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [31, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_322
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [31, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_323
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [31, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_324
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [31, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_325
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [31, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_326
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [31, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_327
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [31, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_328
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [33, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_329
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [33, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_330
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [33, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_331
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [33, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_332
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [33, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_333
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [33, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_334
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [33, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_335
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [33, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_336
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [35, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_337
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [35, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_338
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [35, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_339
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [35, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_340
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [35, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_341
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [35, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_342
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [35, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_343
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [35, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_344
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [37, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_345
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [37, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_346
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [37, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_347
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [37, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_348
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [37, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_349
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [37, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_350
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [37, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_351
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [37, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_352
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [39, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_353
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [39, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_354
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [39, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_355
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [39, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_356
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [39, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_357
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [39, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_358
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [39, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_359
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [39, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_360
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [41, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_361
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [41, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_362
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [41, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_363
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [41, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_364
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [41, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_365
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [41, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_366
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [41, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_367
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [41, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_368
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [43, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_369
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [43, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_370
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [43, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_371
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [43, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_372
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [43, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_373
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [43, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_374
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [43, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_375
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [43, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_376
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [45, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_377
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [45, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_378
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [45, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_379
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [45, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_380
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [45, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_381
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [45, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_382
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [45, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_383
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [45, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_384
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [47, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_385
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [47, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_386
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [47, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_387
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [47, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_388
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [47, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_389
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [47, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_390
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [47, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_391
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [47, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_392
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [49, 0.50, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_393
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [49, 1.51, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_394
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [49, 2.52, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_395
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [49, 3.53, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_396
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [49, 4.54, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_397
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [49, 5.55, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_398
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [49, 6.56, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_399
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [49, 7.57, -49]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_400
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-49, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_401
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-49, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_402
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-49, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_403
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-49, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_404
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-49, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_405
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-49, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_406
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-49, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_407
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-49, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_408
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-47, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_409
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-47, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_410
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-47, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_411
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-47, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_412
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-47, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_413
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-47, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_414
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-47, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_415
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-47, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_416
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-45, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_417
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-45, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_418
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-45, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_419
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-45, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_420
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-45, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_421
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-45, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_422
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-45, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_423
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-45, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_424
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-43, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_425
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-43, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_426
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-43, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_427
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-43, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_428
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-43, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_429
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-43, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_430
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-43, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_431
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-43, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_432
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-41, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_433
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-41, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_434
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-41, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_435
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-41, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_436
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-41, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_437
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-41, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_438
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-41, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_439
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-41, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_440
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-39, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_441
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-39, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_442
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-39, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_443
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-39, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_444
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-39, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_445
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-39, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_446
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-39, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_447
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-39, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_448
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-37, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_449
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-37, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_450
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-37, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_451
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-37, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_452
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-37, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_453
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-37, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_454
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-37, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_455
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-37, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_456
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-35, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_457
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-35, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_458
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-35, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_459
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-35, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_460
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-35, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_461
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-35, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_462
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-35, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_463
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-35, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_464
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-33, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_465
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-33, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_466
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-33, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_467
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-33, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_468
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-33, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_469
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-33, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_470
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-33, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_471
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-33, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_472
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-31, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_473
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-31, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_474
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-31, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_475
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-31, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_476
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-31, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_477
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-31, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_478
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-31, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_479
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-31, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_480
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-29, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_481
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-29, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_482
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-29, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_483
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-29, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_484
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-29, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_485
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-29, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_486
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-29, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_487
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-29, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_488
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-27, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_489
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-27, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_490
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-27, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_491
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-27, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_492
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-27, 4.54, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_493
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-27, 5.55, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_494
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-27, 6.56, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_495
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-27, 7.57, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_496
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-25, 0.50, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_497
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-25, 1.51, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_498
+    mesh: cube
+    color: [225, 170, 95]
+    transform:
+      position: [-25, 2.52, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
+  - id: body_499
+    mesh: cube
+    color: [90, 170, 220]
+    transform:
+      position: [-25, 3.53, -47]
+    physics:
+      type: dynamic
+      collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
