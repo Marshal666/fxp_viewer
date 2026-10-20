@@ -1,0 +1,14 @@
+# Regular tetrahedron, centred at its centroid; four outward-wound flat faces.
+# The chaos scene scales this mesh by 0.62 and uses matching convex vertices.
+v 0.5 0.5 0.5
+v -0.5 -0.5 0.5
+v -0.5 0.5 -0.5
+v 0.5 -0.5 -0.5
+vn -0.577350269 0.577350269 0.577350269
+vn 0.577350269 -0.577350269 0.577350269
+vn 0.577350269 0.577350269 -0.577350269
+vn -0.577350269 -0.577350269 -0.577350269
+f 1//1 3//1 2//1
+f 1//2 2//2 4//2
+f 1//3 4//3 3//3
+f 2//4 3//4 4//4

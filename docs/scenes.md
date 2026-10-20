@@ -184,12 +184,31 @@ Supported YAML colliders:
 collider: { shape: box, half_extents: [0.5, 0.5, 0.5] }
 # Or:
 collider: { shape: sphere, radius: 0.5 }
+# Or an explicit convex hull, here a regular tetrahedron:
+collider:
+  shape: convex
+  vertices:
+    - [0.5, 0.5, 0.5]
+    - [-0.5, -0.5, 0.5]
+    - [-0.5, 0.5, -0.5]
+    - [0.5, -0.5, -0.5]
+  faces: [[0, 2, 1], [0, 1, 3], [0, 3, 2], [1, 2, 3]]
 ~~~
 
-Collider sizes are final dimensions in metres, centred at the body's origin,
-and do not inherit transform.scale. A unit cube uses half extents [0.5, 0.5, 0.5];
+Collider dimensions and vertices are in metres in the body's local coordinates
+and do not inherit transform.scale. Boxes and spheres are centred at the body's
+origin. A unit cube uses half extents [0.5, 0.5, 0.5];
 a unit sphere mesh has radius 0.5. For a visual sphere scaled to diameter 1.5,
 set radius to 0.75. A floor uses a thin static box. Colliders need no mesh.
+
+Convex hulls need 4..128 vertices and 4..256 faces. Each face lists 3..128
+zero-based vertex indices, wound counterclockwise when viewed from outside.
+Faces must be planar, convex and form a closed, convex hull with nonzero volume;
+every vertex must be used. Vertex components are limited to +/-128 m. Hull
+vertices are read directly as fixed-point decimals. To match an imported visual
+mesh, use the same vertex coordinates and account for its visual scale explicitly.
+The [500-body chaos scene](../examples/physics_chaos_500.yaml) includes tetrahedra
+with matching OBJ geometry and convex colliders.
 
 Initial physics position and rotation come from the object's transform.
 Rotation is Euler X, then Y, then Z, in degrees. Physics decimals and rotations

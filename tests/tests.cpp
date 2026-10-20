@@ -81,6 +81,74 @@ void clickPlayback(Viewer& viewer,int button) {
     PlayAutomationEvent({0,5,{MOUSE_BUTTON_LEFT,0,0,0}});
     viewer.frame(0);
 }
+void testConvexColliders(Viewer& viewer) {
+    using namespace fxp_physics;
+    const auto fixture=std::filesystem::path("test-output/convex-physics.yaml");
+    const std::string vertices="[[0.500000001,0.5,0.5],[-0.5,-0.5,0.5],[-0.5,0.5,-0.5],[0.5,-0.5,-0.5]]";
+    const std::string faces="[[0,2,1],[0,1,3],[0,3,2],[1,2,3]]";
+    const auto hull="shape: convex, vertices: "+vertices+", faces: "+faces;
+    auto write=[&](const std::string& collider) {
+        std::ofstream f(fixture);
+        f<<"version: 1\nphysics: {tick_hz: 20, substeps: 4}\nobjects:\n"
+           "  - id: floor\n    transform: {position: [0, -0.5, 0]}\n"
+           "    physics: {type: static, collider: {shape: box, half_extents: [5, 0.5, 5]}}\n"
+           "  - id: tetra\n    transform: {position: [0, 3, 0]}\n"
+           "    physics: {collider: {"<<collider<<"}}\n";
+    };
+    write(hull);
+    require(viewer.loadScene(fixture),"Convex physics fixture failed to load");
+    auto document=loadSceneFile(fixture,viewer.renderer());
+    require(document.physics->bodies.back().shape->type()==ShapeType::convex,"Convex collider became another shape");
+    World expected(document.physics->config,document.physics->seed);
+    for (const auto& entry:document.physics->bodies) {
+        auto body=entry.body; body.user_data=entry.object;
+        ColliderDesc collider;
+        collider.body=expected.create_body(body);
+        collider.material=entry.material;
+        collider.shape=entry.shape;
+        if (entry.object==document.scene.find("tetra"))
+            collider.shape=Shape::convex({{Real::from_string("0.500000001"),0.5_r,0.5_r},
+                {-0.5_r,-0.5_r,0.5_r},{-0.5_r,0.5_r,-0.5_r},{0.5_r,-0.5_r,-0.5_r}},
+                {{0,2,1},{0,1,3},{0,3,2},{1,2,3}});
+        expected.create_collider(collider);
+    }
+    auto sim=viewer.simulation();
+    require(sim->world().save()==expected.save(),"Convex vertex decimal lost precision");
+    for (int i=0;i<120;++i) sim->step(viewer.scene());
+    const auto tetra=viewer.scene().find("tetra");
+    const auto y=sim->world().body(sim->bodyId(tetra)).properties.pose.position.y;
+    require(y>0.2_r && y<1_r,"Convex tetrahedron did not land on the floor");
+    const auto settled=sim->world().save();
+    const auto repeated=[](const std::string& value,int count) {
+        std::string result="[";
+        for (int i=0;i<count;++i) { if (i) result+=','; result+=value; }
+        return result+"]";
+    };
+    const std::vector<std::string> invalid={
+        hull+", unexpected: true",hull+", faces: "+faces,
+        "shape: convex, vertices: {}, faces: "+faces,
+        "shape: convex, vertices: [[0,0,0],[1,0,0],[0,1,0]], faces: "+faces,
+        "shape: convex, vertices: "+repeated("[0,0,0]",129)+", faces: "+faces,
+        "shape: convex, vertices: [[0,0],[1,0,0],[0,1,0],[0,0,1]], faces: "+faces,
+        "shape: convex, vertices: [[.nan,0,0],[1,0,0],[0,1,0],[0,0,1]], faces: "+faces,
+        "shape: convex, vertices: "+vertices+", faces: {}",
+        "shape: convex, vertices: "+vertices+", faces: [[0,2,1],[0,1,3],[0,3,2]]",
+        "shape: convex, vertices: "+vertices+", faces: "+repeated("[0,2,1]",257),
+        "shape: convex, vertices: "+vertices+", faces: ["+repeated("0",129)+",[0,1,3],[0,3,2],[1,2,3]]"
+    };
+    for (const auto& collider:invalid) {
+        write(collider);
+        require(!viewer.loadScene(fixture),"Invalid convex shape accepted");
+        require(viewer.simulation()==sim && sim->world().save()==settled,"Invalid convex load discarded current state");
+    }
+    for (const auto& face: {"[0,2]","[0,1,2]","[0,2,2]","[0,2,-1]","[0,2,4]",
+                           "[0,2,1.5]","[0,2,9223372036854775808]","[0,2,[]]","[0,2,true]"}) {
+        write("shape: convex, vertices: "+vertices+", faces: ["+face+",[0,1,3],[0,3,2],[1,2,3]]");
+        require(!viewer.loadScene(fixture),"Invalid convex face accepted");
+        require(viewer.simulation()==sim && sim->world().save()==settled,"Invalid convex face load discarded current state");
+    }
+    std::cout<<"Convex YAML precision, collision and invalid-hull tests passed\n";
+}
 void testPhysicsScenes(Viewer& viewer,const std::filesystem::path& project) {
     using namespace fxp_physics;
     if (!viewer.loadScene(project/"examples/physics_playground.yaml")) throw std::runtime_error(viewer.lastError());
@@ -161,6 +229,7 @@ void testPhysicsScenes(Viewer& viewer,const std::filesystem::path& project) {
     viewer.simulation()->pause(viewer.scene());
     auto after=viewer.scene().object(id).transform.rotation;
     near(std::abs(Vector4DotProduct(before,after)),1);
+    testConvexColliders(viewer);
     require(viewer.loadScene(project/"examples/empty.yaml")&&!viewer.simulation(),"Nonphysics scene retained old simulation");
     clickPlayback(viewer,0); // Disabled controls must be harmless.
     std::cout<<"Physics YAML, controls, wall impact, tower collapse and replay tests passed\n";

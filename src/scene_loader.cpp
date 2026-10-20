@@ -94,7 +94,35 @@ PhysicsBody readPhysicsBody(const YAML::Node& node,ObjectId id) {
     } else if (shape=="sphere") {
         fields(collider,{"shape","radius"});
         result.shape=Shape::sphere(fixedNumber(collider["radius"]));
-    } else throw std::runtime_error("Collider shape must be box or sphere");
+    } else if (shape=="convex") {
+        fields(collider,{"shape","vertices","faces"});
+        const auto vertices=collider["vertices"],faces=collider["faces"];
+        if (!vertices.IsSequence() || vertices.size()<4 || vertices.size()>128)
+            throw std::runtime_error("Convex vertices must be a sequence of 4..128 positions");
+        if (!faces.IsSequence() || faces.size()<4 || faces.size()>256)
+            throw std::runtime_error("Convex faces must be a sequence of 4..256 index lists");
+        std::vector<Vec3> points;
+        points.reserve(vertices.size());
+        for (auto vertex:vertices) points.push_back(fixedVector(vertex));
+        std::vector<std::vector<std::uint32_t>> polygons;
+        polygons.reserve(faces.size());
+        for (auto face:faces) {
+            if (!face.IsSequence() || face.size()<3 || face.size()>128)
+                throw std::runtime_error("Convex face must contain 3..128 vertex indices");
+            std::vector<std::uint32_t> indices;
+            indices.reserve(face.size());
+            for (auto value:face) {
+                if (!value.IsScalar())
+                    throw std::runtime_error("Convex face index must be an integer");
+                const auto index=value.as<std::int64_t>();
+                if (index<0 || static_cast<std::uint64_t>(index)>=points.size())
+                    throw std::runtime_error("Convex face index is outside the vertex list");
+                indices.push_back(static_cast<std::uint32_t>(index));
+            }
+            polygons.push_back(std::move(indices));
+        }
+        result.shape=Shape::convex(std::move(points),std::move(polygons));
+    } else throw std::runtime_error("Collider shape must be box, sphere or convex");
     return result;
 }
 

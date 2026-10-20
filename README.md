@@ -31,6 +31,14 @@ Scenes start paused. Step pauses and advances one whole tick; Reset restores the
 initial physics snapshot and body transforms, leaving the camera where it is.
 Scenes without physics keep the controls disabled.
 
+For a busier collision scene, open
+[examples/physics_chaos_500.yaml](examples/physics_chaos_500.yaml): 250 crates,
+150 spheres and 100 convex tetrahedra collide in a loading yard with ramps.
+Incoming balls topple leaning stacks while tetrahedral debris falls into them.
+It uses 20 Hz physics, four substeps and 12 solver iterations, with seven
+additional static arena bodies. The tetrahedron OBJ is included; press Play to
+start or Reset to repeat the same collapse.
+
 ## Windows
 
 Install Visual Studio 2026 with Desktop development with C++ and CMake tools.
